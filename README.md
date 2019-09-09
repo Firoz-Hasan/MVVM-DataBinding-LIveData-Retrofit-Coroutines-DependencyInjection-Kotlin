@@ -104,8 +104,6 @@ Object ---> Json OR Json ---> object(POJO) so thats why we need Gson.
    *
    Business logic should be part of viewmodel
    
-   This is a experiment project which aims to provide fundamental idea about LifecycleObserver, ViewModel, LiveData. 
-   /* UNDERSTANDING VIEWMODEL & LIVEDATA
    
    VIEWMODEL :
    wht it does is : * it provides the data to UI. * load the data fm network or db
