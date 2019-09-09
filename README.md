@@ -88,7 +88,7 @@ Object ---> Json OR Json ---> object(POJO) so thats why we need Gson.
   </li>
   </ul>
   
-  /* --------------------------------HOW MVP WORKS-----------------------------------------
+  /* --------------------------------HOW MVVM WORKS-----------------------------------------
    * MODEL :
    * In Android, the role of a model is usually played by a data access layer
    * such as database API or REST API.
@@ -115,11 +115,32 @@ Object ---> Json OR Json ---> object(POJO) so thats why we need Gson.
    * It monitors Model and talks to View so that
    * they can handle when a particular View needs to be updated and when to not.
    *
-   Business logic should be part of presenter
-    * Presenter: This is the brain of the app. All the business logic is kept here. It is responsible for keeping the view and model away from each other. View and Model can only talk through the Presenter. The view-model interaction can be:
-       The view is requesting data from the model to show to the user.
-       The model is updated in the background and now the view needs to be updated to show the latest information
-       The view needs to update the model according to the user interaction.
-       Presenter prides itself to handle all of this!!
+   Business logic should be part of viewmodel
+   
+   This is a experiment project which aims to provide fundamental idea about LifecycleObserver, ViewModel, LiveData. 
+   /* UNDERSTANDING VIEWMODEL & LIVEDATA
+   
+   VIEWMODEL :
+   wht it does is : * it provides the data to UI. * load the data fm network or db
+   SO viewmodel act as communication layer between Network/DB and UI
+   data is preserved on confg changes why? activity / frag fetching data fm viewmodel so if activity
+   is recreated it taking/ fetching data from same viewmodel.
+   LIVEDATA :
+   We used to update THI UI through interface
+   reduce boiler plate code
+   SO why use livedata with viewmodel?
+   Viewmodel survives during configuration changes &
+   livedata helps to update UI(without interface) as it can be observed
+   
+   ViewModel : holding and preparing data for the UI / ViewModel stores UI-related data that isn't destroyed on app rotations.
+   SO activity / frag connects this
+   viewmodel and gets all necessary data fm there and reporting user interaciton
+   to viewmodel and then viewmodel forward this user interaciton to underline layout
+   of the app either to load new data or to make change to dataset.
+   SO viewmodel works as a gateway for the UI controller (activity/frag)
+   and rest of the app.
+
+       
+       
 </ol>
 
