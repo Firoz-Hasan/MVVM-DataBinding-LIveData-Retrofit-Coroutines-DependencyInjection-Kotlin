@@ -10,4 +10,7 @@ interface JobServices {
 
     @GET(Constant.CAPITAL)
     fun getKountry(@Path("capital") capitalOfCountry: String): Call<List<Country>>
+
+    @GET(Constant.ALL_COUNTIRES)
+    fun getAllCountries() : Call<List<Country>>
 }

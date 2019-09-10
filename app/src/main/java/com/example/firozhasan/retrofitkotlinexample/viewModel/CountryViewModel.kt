@@ -17,5 +17,7 @@ class CountryViewModel : ViewModel() {
 
     fun onChangeFindCountryClick() = countryRepos.getCountyNameByCapital(editTextCountryName.value.toString())
 
+   // fun onChangeFindCountryClick() = countryRepos.getALLCounty()
+
 
 }

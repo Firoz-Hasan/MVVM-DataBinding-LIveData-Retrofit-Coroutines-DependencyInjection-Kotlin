@@ -48,4 +48,29 @@ object countryRepos {
 
         })
     }
+
+
+    fun getALLCounty() {
+        val call = apiclient?.getAllCountries()
+
+        call?.enqueue(object : Callback<List<Country>> {
+            override fun onFailure(call: Call<List<Country>>?, t: Throwable?) {
+                Log.d("failure", t.toString())
+            }
+
+            override fun onResponse(call: Call<List<Country>>?, response: Response<List<Country>>?) {
+                if (response?.isSuccessful!!) {
+                    var results = response?.body()?.size
+                    Log.d("success", results.toString())
+                //    countryTV?.setText(results)
+
+
+                }
+
+
+            }
+
+
+        })
+    }
 }
