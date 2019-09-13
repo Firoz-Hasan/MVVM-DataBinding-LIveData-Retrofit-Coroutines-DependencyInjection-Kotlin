@@ -9,14 +9,25 @@ import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.ArrayList
 
 object countryRepos {
 
     private var apiclient: JobServices? = null
 
     private val _currentCountryName = MutableLiveData<String>()
+
     val currentCountryName: LiveData<String>
         get() = _currentCountryName
+
+
+    lateinit var status: String
+    var countriesList: List<Country> = ArrayList<Country>()
+    val _countires: MutableLiveData<List<Country>> = MutableLiveData()
+    val countires: LiveData<List<Country>>
+        get() = _countires
+
+
 
     init {
         _currentCountryName.value = "N/A"
@@ -24,7 +35,7 @@ object countryRepos {
     }
 
     fun getCountyNameByCapital(capital: String
-                                        ) {
+    ) {
         val call = apiclient?.getKountry(capital)
 
         call?.enqueue(object : Callback<List<Country>> {
@@ -36,7 +47,7 @@ object countryRepos {
                 if (response?.isSuccessful!!) {
                     var results = response?.body()?.get(0)?.name
                     Log.d("success", results)
-                //    countryTV?.setText(results)
+                    //    countryTV?.setText(results)
                     _currentCountryName.value = results.toString()
 
 
@@ -62,7 +73,11 @@ object countryRepos {
                 if (response?.isSuccessful!!) {
                     var results = response?.body()?.size
                     Log.d("success", results.toString())
-                //    countryTV?.setText(results)
+                    //    countryTV?.setText(results)
+
+                    val body = response.body()
+                    //status = body[0].
+                    _countires.value = response.body()
 
 
                 }
