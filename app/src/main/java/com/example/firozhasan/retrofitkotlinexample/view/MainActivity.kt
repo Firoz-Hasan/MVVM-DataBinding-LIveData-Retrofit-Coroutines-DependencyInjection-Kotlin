@@ -1,13 +1,8 @@
 package com.example.firozhasan.retrofitkotlinexample.view
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.firozhasan.retrofitkotlinexample.R
-import com.example.firozhasan.retrofitkotlinexample.databinding.ActivityMainBinding
-import com.example.firozhasan.retrofitkotlinexample.viewModel.CountryViewModel
-
 
 class MainActivity : AppCompatActivity(){
 
@@ -15,7 +10,7 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val mainViewModel = ViewModelProviders.of(this)
+     /*   val mainViewModel = ViewModelProviders.of(this)
                 .get(CountryViewModel::class.java)
 
         DataBindingUtil.setContentView<ActivityMainBinding>(
@@ -23,7 +18,7 @@ class MainActivity : AppCompatActivity(){
         ).apply {
             this.setLifecycleOwner(this@MainActivity)
             this.viewmodel = mainViewModel
-        }
+        }*/
 
 
     }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Retrofit-Kotlin-Example.iml" filepath="$PROJECT_DIR$/.idea/Retrofit-Kotlin-Example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MVVM-DataBinding-LIveData-Retrofit-Kotlin.iml" filepath="$PROJECT_DIR$/MVVM-DataBinding-LIveData-Retrofit-Kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

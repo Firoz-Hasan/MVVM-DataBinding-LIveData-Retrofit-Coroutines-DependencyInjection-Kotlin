@@ -1,67 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="viewmodel"
-            type="com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountiresViewModel"/>
+            type="com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountiresViewModel" />
     </data>
 
 
-<android.support.constraint.ConstraintLayout
-    android:padding="5dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/item_card"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        app:cardElevation="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_margin="10dp"
+android:elevation="10dp"
+        >
 
-        <RelativeLayout
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/item_card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+
+            app:cardElevation="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp">
 
 
-            <ImageView
-                android:id="@+id/flag_imv"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                <ImageView
+                    android:id="@+id/flag_imv"
+                    android:layout_width="120dp"
+                    android:layout_height="85dp"
 
 
-                />
+                    />
 
-            <TextView
-                android:id="@+id/country_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
-                android:layout_toRightOf="@+id/flag_imv"
-                android:fontFamily="sans-serif-black"
-                android:text="Afganistan"
-                android:textSize="25sp" />
+                <TextView
+                    android:id="@+id/country_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_toRightOf="@+id/flag_imv"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Afganistan"
+                    android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/city_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/country_tv"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/flag_imv"
-                android:text="Kabul"
-                android:textSize="15sp" />
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-</android.support.constraint.ConstraintLayout>
+                <TextView
+                    android:id="@+id/city_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/country_tv"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/flag_imv"
+                    android:text="Kabul"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </android.support.constraint.ConstraintLayout>
 </layout>

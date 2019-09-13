@@ -1,46 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-    <data>
-        <variable
-            name="viewmodel"
-            type="com.example.firozhasan.retrofitkotlinexample.viewModel.CountryViewModel"/>
-    </data>
-<LinearLayout
+
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".view.MainActivity"
+tools:showIn="@layout/activity_main"
+android:orientation="vertical"
+android:background="@color/white">
+
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.MainActivity">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Capital"
-        android:text="@={viewmodel.editTextCountryName}"
+</android.support.v7.widget.Toolbar>
 
-         />
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" Find Country"
-        android:onClick="@{() -> viewmodel.onChangeFindCountryClick()}"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/navigation_bottom">
+    </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav"
+        app:itemIconTint="@color/menu_item_foreground"
+        app:itemTextColor="@color/menu_item_foreground"
+
 
         />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textColor="#e20606"
-        android:text="@{viewmodel.currentCountryName}"
-         />
-</LinearLayout>
-</layout>
+</RelativeLayout>
