@@ -27,7 +27,7 @@ class AllCountries : AppCompatActivity() {
 
         val mainViewModel = ViewModelProviders.of(this)
                 .get(AllCountiresViewModel::class.java)
-        //mainViewModel.onChangeFindCountryClick()
+        mainViewModel.onChangeFindCountryClick()
 
         /*mainViewModel.allCountires.observe(this, Observer {
             adapter = CountiresAdapter(this, heroList)
