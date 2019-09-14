@@ -11,7 +11,7 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/find"
         android:icon="@drawable/dice_icon"
         android:orderInCategory="100"
         android:title="Find"

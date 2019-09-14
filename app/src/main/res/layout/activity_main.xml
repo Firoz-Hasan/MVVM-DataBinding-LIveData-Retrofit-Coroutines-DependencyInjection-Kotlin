@@ -33,7 +33,7 @@ android:background="@color/white">
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
-        app:menu="@menu/bottom_nav"
+        app:menu="@menu/bottom_tab_bar_items"
         app:itemIconTint="@color/menu_item_foreground"
         app:itemTextColor="@color/menu_item_foreground"
 

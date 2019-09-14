@@ -5,10 +5,10 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.R
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                         toolbar!!.visibility = View.VISIBLE
                         return true
                     }
-                    R.id.search -> {
+                    R.id.find -> {
                         addFragment(searchFrag!!, allCountriesFrag!!)
                         toolbar!!.visibility = View.INVISIBLE
                         return true
@@ -45,17 +45,17 @@ class MainActivity : AppCompatActivity() {
         prepareAllView()
 // add kountry list fragment as default fragment
         addFragment(allCountriesFrag!!, searchFrag!!)
-        /*   val mainViewModel = ViewModelProviders.of(this)
-                   .get(CountryViewModel::class.java)
-
-           DataBindingUtil.setContentView<ActivityMainBinding>(
-                   this, R.layout.activity_main
-           ).apply {
-               this.setLifecycleOwner(this@MainActivity)
-               this.viewmodel = mainViewModel
-           }*/
 
 
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        //inflater.inflate(R.menu.menu_main, menu)
+        //inflater.inflate(R.menu.menu_main, menu)
+       // prepareSearchView(menu)
+        return true
     }
 
     fun prepareAllView() {
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                 .beginTransaction()
                 .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                 .hide(fragment2)
-                .add(R.id.content, fragment, fragment.javaClass.getSimpleName())
+                .add(R.id.content, fragment, fragment.javaClass.simpleName)
                 .show(fragment)
                 .commit()
         }
