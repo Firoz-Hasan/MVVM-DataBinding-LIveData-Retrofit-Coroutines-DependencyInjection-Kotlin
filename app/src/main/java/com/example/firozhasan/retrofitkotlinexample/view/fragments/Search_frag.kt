@@ -1,4 +1,4 @@
-package com.example.firozhasan.retrofitkotlinexample.view
+package com.example.firozhasan.retrofitkotlinexample.view.fragments
 
 
 import android.arch.lifecycle.ViewModelProviders
@@ -20,14 +20,12 @@ class Search_frag : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-       // return inflater.inflate(R.layout.fragment_search_frag, container, false)
-        val mainViewModel = ViewModelProviders.of(this)
+       val viewModel = ViewModelProviders.of(this)
             .get(CountryViewModel::class.java)
         val binding = DataBindingUtil.inflate<FragmentSearchFragBinding>(inflater,
             R.layout.fragment_search_frag, container, false).apply {
             this.lifecycleOwner = activity
-            this.viewmodel = mainViewModel
+            this.viewmodel = viewModel
         }
         return binding.root
     }

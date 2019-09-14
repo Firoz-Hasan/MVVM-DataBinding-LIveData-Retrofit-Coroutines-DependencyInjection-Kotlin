@@ -9,6 +9,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.R
+import com.example.firozhasan.retrofitkotlinexample.view.fragments.All_Countries_Frag
+import com.example.firozhasan.retrofitkotlinexample.view.fragments.Search_frag
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
-        //inflater.inflate(R.menu.menu_main, menu)
+        inflater.inflate(R.menu.menu_main, menu)
         //inflater.inflate(R.menu.menu_main, menu)
        // prepareSearchView(menu)
         return true
@@ -61,7 +63,8 @@ class MainActivity : AppCompatActivity() {
     fun prepareAllView() {
         prepareToolBar()
         prepareBottomNavView()
-        allCountriesFrag = All_Countries_Frag()
+        allCountriesFrag =
+            All_Countries_Frag()
         searchFrag = Search_frag()
     }
 

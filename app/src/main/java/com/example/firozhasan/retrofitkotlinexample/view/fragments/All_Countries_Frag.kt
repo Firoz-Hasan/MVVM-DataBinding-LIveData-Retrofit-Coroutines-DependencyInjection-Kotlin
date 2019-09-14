@@ -1,4 +1,4 @@
-package com.example.firozhasan.retrofitkotlinexample.view
+package com.example.firozhasan.retrofitkotlinexample.view.fragments
 
 
 import android.arch.lifecycle.Observer
