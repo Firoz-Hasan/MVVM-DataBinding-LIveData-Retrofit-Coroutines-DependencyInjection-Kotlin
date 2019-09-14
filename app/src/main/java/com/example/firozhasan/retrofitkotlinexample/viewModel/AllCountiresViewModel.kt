@@ -7,7 +7,7 @@ import com.example.firozhasan.retrofitkotlinexample.model.repos.countryRepos
 
 class AllCountiresViewModel : ViewModel() {
      val allCountires: LiveData<List<Country>>
-        get() = countryRepos.countires
+        get() = countryRepos.getAllCountires
 
     fun onChangeFindCountryClick() = countryRepos.getALLCounty()
 

@@ -21,10 +21,8 @@ object countryRepos {
         get() = _currentCountryName
 
 
-    lateinit var status: String
-    var countriesList: List<Country> = ArrayList<Country>()
     val _countires: MutableLiveData<List<Country>> = MutableLiveData()
-    val countires: LiveData<List<Country>>
+    val getAllCountires: LiveData<List<Country>>
         get() = _countires
 
 
@@ -73,10 +71,6 @@ object countryRepos {
                 if (response?.isSuccessful!!) {
                     var results = response?.body()?.size
                     Log.d("success", results.toString())
-                    //    countryTV?.setText(results)
-
-                    val body = response.body()
-                    //status = body[0].
                     _countires.value = response.body()
 
 
