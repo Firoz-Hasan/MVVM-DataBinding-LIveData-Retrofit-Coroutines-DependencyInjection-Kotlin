@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="allCountiresViewmodel"
-            type="com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountiresViewModel" />
+            name="adapter"
+            type="com.example.firozhasan.retrofitkotlinexample.view.adapters.CountiresAdapter" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -27,6 +27,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#b2beb5"
+                android:adapter="@{adapter}"
+                android:scrollbars="vertical"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
