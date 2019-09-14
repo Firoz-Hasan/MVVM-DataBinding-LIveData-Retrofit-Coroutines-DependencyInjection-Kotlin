@@ -23,7 +23,6 @@
         android:inputType="textPersonName"
         android:hint="Capital"
         android:text="@={viewmodel.editTextCountryName}"
-
          />
     <Button
         android:id="@+id/button"

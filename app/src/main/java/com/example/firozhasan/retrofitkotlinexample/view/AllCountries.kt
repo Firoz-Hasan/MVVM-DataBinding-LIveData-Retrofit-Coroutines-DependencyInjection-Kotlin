@@ -19,7 +19,7 @@ class AllCountries : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_all_countries)
+        setContentView(R.layout.all_countries_frag)
 
         recyclerView = findViewById(R.id.countries_RV)
         recyclerView.setHasFixedSize(true)

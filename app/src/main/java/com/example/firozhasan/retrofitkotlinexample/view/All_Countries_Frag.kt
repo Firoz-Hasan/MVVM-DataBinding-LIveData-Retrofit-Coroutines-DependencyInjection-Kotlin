@@ -30,7 +30,7 @@ class All_Countries_Frag : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var view = inflater.inflate(R.layout.activity_all_countries, container, false)
+        var view = inflater.inflate(R.layout.all_countries_frag, container, false)
 
         recyclerView = view?.findViewById(R.id.countries_RV)!!
         recyclerView.setHasFixedSize(true)
