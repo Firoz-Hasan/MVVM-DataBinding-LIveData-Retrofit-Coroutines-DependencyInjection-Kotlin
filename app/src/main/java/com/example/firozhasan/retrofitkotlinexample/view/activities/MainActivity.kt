@@ -1,4 +1,4 @@
-package com.example.firozhasan.retrofitkotlinexample.view
+package com.example.firozhasan.retrofitkotlinexample.view.activities
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
