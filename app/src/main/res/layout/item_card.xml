@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -9,57 +8,53 @@
     <data>
 
         <variable
-            name="viewmodel"
-            type="com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountiresViewModel" />
+            name="country"
+            type="com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country" />
     </data>
 
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/item_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="5dp"
+        card_view:cardCornerRadius="5dp">
 
-
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/item_card"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:elevation="5dp"
-            card_view:cardCornerRadius="5dp"
-            >
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15dp">
+            android:layout_height="match_parent"
+            android:layout_margin="15dp">
 
 
-                <ImageView
-                    android:id="@+id/flag_imv"
-                    android:layout_width="120dp"
-                    android:layout_height="85dp"
+            <ImageView
+                android:id="@+id/flag_imv"
+                android:layout_width="120dp"
+                android:layout_height="85dp"
+                android:src="@{country.flag}"
 
+                />
 
-                    />
+            <TextView
+                android:id="@+id/country_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_toRightOf="@+id/flag_imv"
+                android:fontFamily="sans-serif-black"
+                android:text="@{country.name}"
+                android:textSize="25sp" />
 
-                <TextView
-                    android:id="@+id/country_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_toRightOf="@+id/flag_imv"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Afganistan"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:id="@+id/city_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/country_tv"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@+id/flag_imv"
-                    android:text="Kabul"
-                    android:textSize="15sp" />
-            </RelativeLayout>
-        </android.support.v7.widget.CardView>
+            <TextView
+                android:id="@+id/city_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/country_tv"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/flag_imv"
+                android:text="@{country.capital}"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </layout>

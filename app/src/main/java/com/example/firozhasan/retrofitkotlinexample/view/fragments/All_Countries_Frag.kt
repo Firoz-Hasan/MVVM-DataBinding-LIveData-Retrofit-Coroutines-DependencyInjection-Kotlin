@@ -39,12 +39,6 @@ class All_Countries_Frag : Fragment() {
         val mainViewModel = ViewModelProviders.of(this)
             .get(AllCountiresViewModel::class.java)
         mainViewModel.onChangeFindCountryClick()
-
-        /*mainViewModel.allCountires.observe(this, Observer {
-            adapter = CountiresAdapter(this, heroList)
-            recyclerView.setAdapter(adapter)
-        })*/
-
         mainViewModel.allCountires.observe(this, Observer<List<Country>> { t ->
             adapter = CountiresAdapter(activity!!, t)
             recyclerView.adapter = adapter
