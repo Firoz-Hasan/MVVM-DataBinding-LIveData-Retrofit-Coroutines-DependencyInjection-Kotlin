@@ -31,8 +31,7 @@
                 android:id="@+id/flag_imv"
                 android:layout_width="120dp"
                 android:layout_height="85dp"
-                android:src="@{country.flag}"
-
+               
                 />
 
             <TextView
