@@ -3,17 +3,19 @@ package com.example.firozhasan.retrofitkotlinexample.model.repos
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.util.Log
-import com.example.firozhasan.retrofitkotlinexample.model.api.JobAPI
+import com.example.firozhasan.retrofitkotlinexample.model.api.CountryAPI
 import com.example.firozhasan.retrofitkotlinexample.model.api.JobServices
+import com.example.firozhasan.retrofitkotlinexample.model.api.LoginAPI
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
+import com.example.firozhasan.retrofitkotlinexample.model.modelClass.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
 
 object Repository {
 
     private var apiclient: JobServices? = null
+    private var loginapiclient: JobServices? = null
 
     /*this variable are for getting country name by giving capital name*/
     private val _currentCountryName = MutableLiveData<String>()
@@ -25,10 +27,16 @@ object Repository {
     val getAllCountires: LiveData<List<Country>>
         get() = _countires
 
+   /*this variable provides list of countries*/
+    val _authentication = MutableLiveData<String>()
+    val getAuthentication: LiveData<String>
+        get() = _authentication
+
 
     init {
         _currentCountryName.value = "N/A"
-        apiclient = JobAPI.client.create(JobServices::class.java)
+        apiclient = CountryAPI.client.create(JobServices::class.java)
+        loginapiclient = LoginAPI.client.create(JobServices::class.java)
     }
 
     fun getCountyNameByCapital(capital: String
@@ -73,11 +81,29 @@ object Repository {
                     _countires.value = response.body()
 
                 }
+            }
+        })
+    }
 
+    fun userLogin(email : String, password: String) : LiveData<String> {
+        val call = loginapiclient?.userLogin(email, password)
+
+        call?.enqueue(object : Callback<User> {
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Log.d("failure", t.toString())
+                _authentication.value = t.message
 
             }
 
+            override fun onResponse(call: Call<User>?, response: Response<User>?) {
+                if (response?.isSuccessful!!) {
+                    var results = response?.body()
+                    Log.d("success", results.toString())
+                    _authentication.value = response.body()?.toString()
 
+                }
+            }
         })
+    return _authentication
     }
 }

@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+    <data>
+
+        <variable
+                name="authViewmodel"
+                type="com.example.firozhasan.retrofitkotlinexample.viewModel.AuthViewModel"
+                />
+
+    </data>
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -39,7 +49,7 @@
                 android:inputType="textEmailAddress"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff"
-
+android:text="@={authViewmodel.email}"
 
                 />
 
@@ -59,7 +69,9 @@
                 android:hint="123456"
                 android:inputType="textPassword"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textColorHint="#FFFFFF"
+                android:text="@={authViewmodel.password}"
+                />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -73,7 +85,9 @@
             android:text="@string/button_sign"
             android:textColor="#2F95DC"
             android:layout_marginTop="20dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:onClick="@{authViewmodel::onLoginButtonClick}"
+            />
 
     <TextView
             android:id="@+id/textView"
@@ -98,3 +112,4 @@
 
 
 </LinearLayout>
+</layout>
