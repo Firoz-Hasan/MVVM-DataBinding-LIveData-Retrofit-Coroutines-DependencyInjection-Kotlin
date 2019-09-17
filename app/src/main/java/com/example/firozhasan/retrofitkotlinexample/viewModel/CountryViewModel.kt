@@ -4,20 +4,20 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.databinding.Bindable
-import com.example.firozhasan.retrofitkotlinexample.model.repos.countryRepos
+import com.example.firozhasan.retrofitkotlinexample.model.repos.Repository
 
 class CountryViewModel : ViewModel() {
 
     val currentCountryName: LiveData<String>
-        get() = countryRepos.currentCountryName
+        get() = Repository.currentCountryName
 
 
     @Bindable
     val editTextCountryName = MutableLiveData<String>()
 
-    fun onChangeFindCountryClick() = countryRepos.getCountyNameByCapital(editTextCountryName.value.toString())
+    fun onChangeFindCountryClick() = Repository.getCountyNameByCapital(editTextCountryName.value.toString())
 
-   // fun onChangeFindCountryClick() = countryRepos.getALLCounty()
+   // fun onChangeFindCountryClick() = Repository.getALLCounty()
 
 
 }

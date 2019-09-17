@@ -11,20 +11,19 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
 
-object countryRepos {
+object Repository {
 
     private var apiclient: JobServices? = null
 
+    /*this variable are for getting country name by giving capital name*/
     private val _currentCountryName = MutableLiveData<String>()
-
     val currentCountryName: LiveData<String>
         get() = _currentCountryName
 
-
+    /*this variable provides list of countries*/
     val _countires: MutableLiveData<List<Country>> = MutableLiveData()
     val getAllCountires: LiveData<List<Country>>
         get() = _countires
-
 
 
     init {
@@ -72,7 +71,6 @@ object countryRepos {
                     var results = response?.body()?.size
                     Log.d("success", results.toString())
                     _countires.value = response.body()
-
 
                 }
 
