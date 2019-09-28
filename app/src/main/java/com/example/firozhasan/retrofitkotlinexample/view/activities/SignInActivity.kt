@@ -10,6 +10,7 @@ import com.example.firozhasan.retrofitkotlinexample.databinding.ActivitySignInBi
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.UserX
 import com.example.firozhasan.retrofitkotlinexample.util.hide
 import com.example.firozhasan.retrofitkotlinexample.util.show
+import com.example.firozhasan.retrofitkotlinexample.util.snackbar
 import com.example.firozhasan.retrofitkotlinexample.util.toast
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AuthViewModel
 import kotlinx.android.synthetic.main.activity_sign_in.*
@@ -23,13 +24,15 @@ class SignInActivity : AppCompatActivity(), AuthListener {
 
     override fun onSuccess(user: UserX?) {
         progress_bar.hide()
-        toast("${user?.name} is logged In")
+        signIN_LL?.snackbar("${user?.name} is logged In")
+      //  toast("${user?.name} is logged In")
 
     }
 
     override fun onFailure(message: String) {
+        signIN_LL?.snackbar(message)
         progress_bar.hide()
-        toast(message)
+     //   toast(message)
 
     }
 
