@@ -110,7 +110,7 @@ object Repository : SafeApiRequest()
            })
        return _authentication*/
 
-        return apiRequest { MyApi().userLogin(email, password) }
+        return apiRequest { LoginAPI().userLogin(email, password) }
 
     }
 }
