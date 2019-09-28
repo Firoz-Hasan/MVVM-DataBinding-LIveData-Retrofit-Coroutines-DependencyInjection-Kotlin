@@ -13,6 +13,8 @@
         <item name="colorControlNormal">#c5c5c5</item>
         <item name="colorControlActivated">#ffffff</item>
         <item name="colorControlHighlight">#ffe100</item>
+        <item name="android:textColorHint">@color/white</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">

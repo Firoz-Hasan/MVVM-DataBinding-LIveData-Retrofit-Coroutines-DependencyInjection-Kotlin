@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="20dp"
+                android:hint="Email"
 
                 >
 
@@ -44,11 +45,11 @@
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="probelalkhan@gmail.com"
                     android:inputType="textEmailAddress"
                     android:text="@={authViewmodel.email}"
                     android:textColor="#ffffff"
                     android:textColorHint="#ffffff"
+                    android:backgroundTint="#0EE9E3"
 
                     />
 
@@ -58,18 +59,22 @@
                 android:id="@+id/passwordWrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:hint="Password"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/white"
                 >
 
             <EditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="123456"
+                    android:backgroundTint="#0EE9E3"
                     android:inputType="textPassword"
                     android:text="@={authViewmodel.password}"
                     android:textColor="#FFFFFF"
-                    android:textColorHint="#FFFFFF" />
+                    android:textColorHint="#FFFFFF"
+
+                    />
 
         </android.support.design.widget.TextInputLayout>
 
