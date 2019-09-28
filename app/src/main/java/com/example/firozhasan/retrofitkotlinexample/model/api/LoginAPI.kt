@@ -4,6 +4,7 @@ import com.example.firozhasan.retrofitkotlinexample.`interface`.Constant
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/*
 class LoginAPI {
 
     companion object {
@@ -21,4 +22,4 @@ class LoginAPI {
                 return retrofit!!
             }
     }
-}
+}*/

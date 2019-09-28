@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.`interface`.AuthListener
 import com.example.firozhasan.retrofitkotlinexample.model.repos.Repository
+import com.example.firozhasan.retrofitkotlinexample.util.ApiException
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 
 class AuthViewModel : ViewModel() {
@@ -19,14 +20,19 @@ class AuthViewModel : ViewModel() {
             return
         }
         Coroutines.main {
-            val loginResponse = Repository.userLogin(email!!, password!!)
+          try {
+              val loginResponse = Repository.userLogin(email!!, password!!)
+              loginResponse?.user?.let {
+                  authListener?.onSuccess(it)
 
-            if (loginResponse?.isSuccessful!!) {
-                authListener?.onSuccess(loginResponse.body()?.user)
-            }
-            else {
-                authListener?.onFailure("Error code: ${loginResponse?.code()}")
-            }
+              }
+              
+
+          }
+          catch (e : ApiException){
+              authListener?.onFailure(e.message!!)
+          }
+
         }
 
     }

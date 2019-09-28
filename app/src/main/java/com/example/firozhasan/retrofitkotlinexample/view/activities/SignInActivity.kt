@@ -1,7 +1,5 @@
 package com.example.firozhasan.retrofitkotlinexample.view.activities
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
