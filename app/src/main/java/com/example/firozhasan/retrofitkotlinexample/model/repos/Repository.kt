@@ -6,6 +6,7 @@ import android.util.Log
 import com.example.firozhasan.retrofitkotlinexample.model.api.CountryAPI
 import com.example.firozhasan.retrofitkotlinexample.model.api.JobServices
 import com.example.firozhasan.retrofitkotlinexample.model.api.LoginAPI
+import com.example.firozhasan.retrofitkotlinexample.model.api.MyApi
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.User
 import retrofit2.Call
@@ -85,8 +86,8 @@ object Repository {
         })
     }
 
-    fun userLogin(email : String, password: String) : LiveData<String> {
-        val call = loginapiclient?.userLogin(email, password)
+    suspend fun userLogin(email : String, password: String) : Response<User>? {
+     /*   val call = loginapiclient?.userLogin(email, password)
 
         call?.enqueue(object : Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {
@@ -102,8 +103,15 @@ object Repository {
                     _authentication.value = response.body()?.toString()
 
                 }
+                else {
+                    _authentication.value = response.errorBody()?.toString()
+
+                }
             }
         })
-    return _authentication
+    return _authentication*/
+
+        return MyApi().userLogin(email, password)
+
     }
 }

@@ -4,6 +4,7 @@ import com.example.firozhasan.retrofitkotlinexample.`interface`.Constant
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.User
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface JobServices {
@@ -16,9 +17,9 @@ interface JobServices {
 
     @FormUrlEncoded
     @POST(Constant.LOGIN)
-    fun userLogin(
+    suspend fun userLogin(
             @Field("email") email: String,
             @Field("password") password: String
 
-    ) : Call<User>
+    ) : Response<User>
 }

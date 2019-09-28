@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import com.example.firozhasan.retrofitkotlinexample.R
 import com.example.firozhasan.retrofitkotlinexample.`interface`.AuthListener
 import com.example.firozhasan.retrofitkotlinexample.databinding.ActivitySignInBinding
+import com.example.firozhasan.retrofitkotlinexample.model.modelClass.UserX
 import com.example.firozhasan.retrofitkotlinexample.util.hide
 import com.example.firozhasan.retrofitkotlinexample.util.show
 import com.example.firozhasan.retrofitkotlinexample.util.toast
@@ -18,16 +19,13 @@ import kotlinx.android.synthetic.main.activity_sign_in.*
 class SignInActivity : AppCompatActivity(), AuthListener {
 
 
-
     override fun onStarted() {
         progress_bar.show()
     }
 
-    override fun onSuccess(loginResponse: LiveData<String>) {
-loginResponse.observe( this , Observer {
-    toast(loginResponse.toString())
-    progress_bar.hide()
-})
+    override fun onSuccess(user: UserX?) {
+        progress_bar.hide()
+        toast("${user?.name} is logged In")
 
     }
 
