@@ -19,15 +19,15 @@ interface LoginAPI {
     ): Response<User>
     companion object {
         operator fun invoke(
-              //  networkConnectionInterceptor: NetworkConnectionInterceptor
+               networkConnectionInterceptor: NetworkConnectionInterceptor
         ): LoginAPI {
 
-            /*val okHttpClient = OkHttpClient.Builder()
+            val okHttpClient = OkHttpClient.Builder()
                     .addInterceptor(networkConnectionInterceptor)
-                    .build()*/
+                    .build()
 
             return Retrofit.Builder()
-                 //   .client(okHttpClient)
+                    .client(okHttpClient)
                     .baseUrl("https://api.simplifiedcoding.in/course-apis/mvvm/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()

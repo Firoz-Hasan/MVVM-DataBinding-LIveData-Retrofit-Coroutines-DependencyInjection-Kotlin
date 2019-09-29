@@ -19,10 +19,7 @@ import com.example.firozhasan.retrofitkotlinexample.viewModel.AuthViewModelFacto
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity(), AuthListener {
-//    val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
-    val loginAPI = LoginAPI()
-    val loginRepository = LoginRepository(loginAPI)
-    val factory = AuthViewModelFactory(loginRepository)
+
 
     override fun onStarted() {
         progress_bar.show()
@@ -45,8 +42,14 @@ class SignInActivity : AppCompatActivity(), AuthListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
+        val loginAPI = LoginAPI(networkConnectionInterceptor)
+        val loginRepository = LoginRepository(loginAPI)
+        val factory = AuthViewModelFactory(loginRepository)
+
+
         val binding: ActivitySignInBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
-        val viewModel = ViewModelProviders.of(this).get(AuthViewModel::class.java)
+        val viewModel = ViewModelProviders.of(this, factory).get(AuthViewModel::class.java)
 
 
         binding.authViewmodel = viewModel

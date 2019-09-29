@@ -4,7 +4,6 @@ import android.arch.lifecycle.ViewModel
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.`interface`.AuthListener
 import com.example.firozhasan.retrofitkotlinexample.model.repos.LoginRepository
-import com.example.firozhasan.retrofitkotlinexample.model.repos.Repository
 import com.example.firozhasan.retrofitkotlinexample.util.ApiException
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import com.example.firozhasan.retrofitkotlinexample.util.NoInternetException
@@ -28,7 +27,7 @@ class AuthViewModel(private val repository : LoginRepository) : ViewModel() {
                   authListener?.onSuccess(it)
 
               }
-              
+              authListener?.onFailure(loginResponse.message!!)
 
           }
           catch (e : ApiException){
