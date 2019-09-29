@@ -7,16 +7,22 @@ import android.support.v7.app.AppCompatActivity
 import com.example.firozhasan.retrofitkotlinexample.R
 import com.example.firozhasan.retrofitkotlinexample.`interface`.AuthListener
 import com.example.firozhasan.retrofitkotlinexample.databinding.ActivitySignInBinding
+import com.example.firozhasan.retrofitkotlinexample.model.api.LoginAPI
+import com.example.firozhasan.retrofitkotlinexample.model.api.NetworkConnectionInterceptor
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.UserX
+import com.example.firozhasan.retrofitkotlinexample.model.repos.LoginRepository
 import com.example.firozhasan.retrofitkotlinexample.util.hide
 import com.example.firozhasan.retrofitkotlinexample.util.show
 import com.example.firozhasan.retrofitkotlinexample.util.snackbar
-import com.example.firozhasan.retrofitkotlinexample.util.toast
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AuthViewModel
+import com.example.firozhasan.retrofitkotlinexample.viewModel.AuthViewModelFactory
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity(), AuthListener {
-
+//    val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
+    val loginAPI = LoginAPI()
+    val loginRepository = LoginRepository(loginAPI)
+    val factory = AuthViewModelFactory(loginRepository)
 
     override fun onStarted() {
         progress_bar.show()

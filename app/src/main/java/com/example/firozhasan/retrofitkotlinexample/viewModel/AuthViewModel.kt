@@ -3,11 +3,13 @@ package com.example.firozhasan.retrofitkotlinexample.viewModel
 import android.arch.lifecycle.ViewModel
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.`interface`.AuthListener
+import com.example.firozhasan.retrofitkotlinexample.model.repos.LoginRepository
 import com.example.firozhasan.retrofitkotlinexample.model.repos.Repository
 import com.example.firozhasan.retrofitkotlinexample.util.ApiException
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
+import com.example.firozhasan.retrofitkotlinexample.util.NoInternetException
 
-class AuthViewModel : ViewModel() {
+class AuthViewModel(private val repository : LoginRepository) : ViewModel() {
     var email: String? = null
     var password: String? = null
 
@@ -21,7 +23,7 @@ class AuthViewModel : ViewModel() {
         }
         Coroutines.main {
           try {
-              val loginResponse = Repository.userLogin(email!!, password!!)
+              val loginResponse = repository.userLogin(email!!, password!!)
               loginResponse?.user?.let {
                   authListener?.onSuccess(it)
 
@@ -30,6 +32,10 @@ class AuthViewModel : ViewModel() {
 
           }
           catch (e : ApiException){
+              authListener?.onFailure(e.message!!)
+          }
+
+          catch (e : NoInternetException){
               authListener?.onFailure(e.message!!)
           }
 

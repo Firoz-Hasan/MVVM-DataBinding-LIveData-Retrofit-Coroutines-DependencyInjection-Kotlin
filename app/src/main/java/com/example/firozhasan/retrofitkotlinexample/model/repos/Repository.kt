@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-object Repository : SafeApiRequest()
+object Repository
 // object is same as static in java
 {
 
@@ -83,34 +83,5 @@ object Repository : SafeApiRequest()
                 }
             }
         })
-    }
-
-    suspend fun userLogin(email: String, password: String): User {
-        /*   val call = loginapiclient?.userLogin(email, password)
-
-           call?.enqueue(object : Callback<User> {
-               override fun onFailure(call: Call<User>, t: Throwable) {
-                   Log.d("failure", t.toString())
-                   _authentication.value = t.message
-
-               }
-
-               override fun onResponse(call: Call<User>?, response: Response<User>?) {
-                   if (response?.isSuccessful!!) {
-                       var results = response?.body()
-                       Log.d("success", results.toString())
-                       _authentication.value = response.body()?.toString()
-
-                   }
-                   else {
-                       _authentication.value = response.errorBody()?.toString()
-
-                   }
-               }
-           })
-       return _authentication*/
-
-        return apiRequest { LoginAPI().userLogin(email, password) }
-
     }
 }

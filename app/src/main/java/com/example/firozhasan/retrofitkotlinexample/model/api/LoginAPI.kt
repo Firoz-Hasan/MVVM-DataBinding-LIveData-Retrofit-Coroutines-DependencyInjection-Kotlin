@@ -14,33 +14,24 @@ interface LoginAPI {
     @FormUrlEncoded
     @POST("login")
     suspend fun userLogin(
-        @Field("email") email: String,
-        @Field("password") password: String
-    ) : Response<User>
+            @Field("email") email: String,
+            @Field("password") password: String
+    ): Response<User>
+    companion object {
+        operator fun invoke(
+              //  networkConnectionInterceptor: NetworkConnectionInterceptor
+        ): LoginAPI {
 
-  /*  @FormUrlEncoded
-    @POST("signup")
-    suspend fun userSignup(
-        @Field("name") name: String,
-        @Field("email") email: String,
-        @Field("password") password: String
-    ) : Response<AuthResponse>
-*/
-   /* @GET("quotes")
-    suspend fun getQuotes() : Response<QuotesResponse>
-*/
-    companion object{
-        operator fun invoke() : LoginAPI{
-
-            val okkHttpclient = OkHttpClient.Builder()
-                .build()
+            /*val okHttpClient = OkHttpClient.Builder()
+                    .addInterceptor(networkConnectionInterceptor)
+                    .build()*/
 
             return Retrofit.Builder()
-                .client(okkHttpclient)
-                .baseUrl("https://api.simplifiedcoding.in/course-apis/mvvm/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(LoginAPI::class.java)
+                 //   .client(okHttpClient)
+                    .baseUrl("https://api.simplifiedcoding.in/course-apis/mvvm/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                    .create(LoginAPI::class.java)
         }
     }
 
