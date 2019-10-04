@@ -1,6 +1,7 @@
 package com.example.firozhasan.retrofitkotlinexample.view.activities
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -19,6 +20,12 @@ import com.example.firozhasan.retrofitkotlinexample.viewModel.AuthViewModelFacto
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity(), AuthListener {
+    override fun gotoMainActivity() {
+        Intent(this, MainActivity::class.java).also {
+            it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(it)
+        }
+    }
 
 
     override fun onStarted() {
@@ -54,5 +61,7 @@ class SignInActivity : AppCompatActivity(), AuthListener {
 
         binding.authViewmodel = viewModel
         viewModel.authListener = this
+
+
     }
 }

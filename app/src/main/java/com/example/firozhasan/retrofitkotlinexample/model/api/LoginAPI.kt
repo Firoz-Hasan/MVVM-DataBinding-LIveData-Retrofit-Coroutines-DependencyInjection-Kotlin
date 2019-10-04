@@ -17,6 +17,7 @@ interface LoginAPI {
             @Field("email") email: String,
             @Field("password") password: String
     ): Response<User>
+
     companion object {
         operator fun invoke(
                networkConnectionInterceptor: NetworkConnectionInterceptor

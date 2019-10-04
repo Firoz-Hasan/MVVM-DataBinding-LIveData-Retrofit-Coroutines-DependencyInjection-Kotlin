@@ -25,6 +25,10 @@ class AuthViewModel(private val repository : LoginRepository) : ViewModel() {
               val loginResponse = repository.userLogin(email!!, password!!)
               loginResponse?.user?.let {
                   authListener?.onSuccess(it)
+                  if (it != null){
+
+                      authListener?.gotoMainActivity()
+                  }
 
               }
               authListener?.onFailure(loginResponse.message!!)
