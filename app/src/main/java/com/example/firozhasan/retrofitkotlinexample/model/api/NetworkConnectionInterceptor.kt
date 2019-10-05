@@ -1,10 +1,11 @@
 package com.example.firozhasan.retrofitkotlinexample.model.api
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import android.support.annotation.RequiresApi
+import androidx.annotation.RequiresApi
 import com.example.firozhasan.retrofitkotlinexample.util.NoInternetException
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -15,14 +16,13 @@ class NetworkConnectionInterceptor(
 
     private val applicationContext = context.applicationContext
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun intercept(chain: Interceptor.Chain): Response {
         if (!isInternetAvailable())
             throw NoInternetException("Make sure you have an active data connection")
         return chain.proceed(chain.request())
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
+    @SuppressLint("NewApi")
     private fun isInternetAvailable(): Boolean {
         var result = false
         val connectivityManager =

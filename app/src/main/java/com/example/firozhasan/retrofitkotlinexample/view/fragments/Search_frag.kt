@@ -1,13 +1,13 @@
 package com.example.firozhasan.retrofitkotlinexample.view.fragments
 
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.example.firozhasan.retrofitkotlinexample.R
 import com.example.firozhasan.retrofitkotlinexample.databinding.FragmentSearchFragBinding
 import com.example.firozhasan.retrofitkotlinexample.viewModel.CountryViewModel

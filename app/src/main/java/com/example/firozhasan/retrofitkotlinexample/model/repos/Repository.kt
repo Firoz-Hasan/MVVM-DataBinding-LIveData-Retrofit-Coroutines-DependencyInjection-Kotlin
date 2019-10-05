@@ -1,11 +1,11 @@
 package com.example.firozhasan.retrofitkotlinexample.model.repos
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
 import android.util.Log
-import com.example.firozhasan.retrofitkotlinexample.model.api.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.firozhasan.retrofitkotlinexample.model.api.CountryAPI
+import com.example.firozhasan.retrofitkotlinexample.model.api.JobServices
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
-import com.example.firozhasan.retrofitkotlinexample.model.modelClass.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
