@@ -30,6 +30,7 @@ class AuthViewModel(private val repository : LoginRepository) : ViewModel() {
                   if (it != null){
 
                       Intent(view.context, MainActivity::class.java).also {
+                          it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                           view.context.startActivity(it)
                       }
                     //  authListener?.gotoMainActivity()
