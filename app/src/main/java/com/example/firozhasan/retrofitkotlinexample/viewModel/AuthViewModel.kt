@@ -1,5 +1,6 @@
 package com.example.firozhasan.retrofitkotlinexample.viewModel
 
+import android.content.Intent
 import androidx.lifecycle.ViewModel
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.`interface`.AuthListener
@@ -7,6 +8,7 @@ import com.example.firozhasan.retrofitkotlinexample.model.repos.LoginRepository
 import com.example.firozhasan.retrofitkotlinexample.util.ApiException
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import com.example.firozhasan.retrofitkotlinexample.util.NoInternetException
+import com.example.firozhasan.retrofitkotlinexample.view.activities.MainActivity
 
 class AuthViewModel(private val repository : LoginRepository) : ViewModel() {
     var email: String? = null
@@ -27,7 +29,10 @@ class AuthViewModel(private val repository : LoginRepository) : ViewModel() {
                   authListener?.onSuccess(it)
                   if (it != null){
 
-                      authListener?.gotoMainActivity()
+                      Intent(view.context, MainActivity::class.java).also {
+                          view.context.startActivity(it)
+                      }
+                    //  authListener?.gotoMainActivity()
                   }
 
               }
