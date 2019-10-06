@@ -1,3 +1,4 @@
+/*
 package com.example.firozhasan.retrofitkotlinexample
 
 import android.app.Application
@@ -21,4 +22,4 @@ class MVVMapplicaiton : Application(), KodeinAware {
         bind() from singleton { LoginRepository(instance()) }
         bind() from provider { AuthViewModelFactory(instance())}
     }
-}
+}*/
