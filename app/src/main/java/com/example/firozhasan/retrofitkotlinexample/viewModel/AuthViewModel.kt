@@ -1,6 +1,6 @@
 package com.example.firozhasan.retrofitkotlinexample.viewModel
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.`interface`.AuthListener
 import com.example.firozhasan.retrofitkotlinexample.model.repos.LoginRepository

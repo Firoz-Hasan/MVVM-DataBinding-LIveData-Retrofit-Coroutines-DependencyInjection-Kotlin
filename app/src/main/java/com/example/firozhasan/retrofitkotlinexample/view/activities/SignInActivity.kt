@@ -1,10 +1,10 @@
 package com.example.firozhasan.retrofitkotlinexample.view.activities
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.firozhasan.retrofitkotlinexample.R
 import com.example.firozhasan.retrofitkotlinexample.`interface`.AuthListener
 import com.example.firozhasan.retrofitkotlinexample.databinding.ActivitySignInBinding
@@ -18,8 +18,15 @@ import com.example.firozhasan.retrofitkotlinexample.util.snackbar
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AuthViewModel
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AuthViewModelFactory
 import kotlinx.android.synthetic.main.activity_sign_in.*
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.kodein
+import org.kodein.di.generic.instance
 
-class SignInActivity : AppCompatActivity(), AuthListener {
+class SignInActivity : AppCompatActivity(), AuthListener, KodeinAware {
+
+    override val kodein by kodein()
+    private val factory : AuthViewModelFactory by instance()
+
     override fun gotoMainActivity() {
         Intent(this, MainActivity::class.java).also {
             it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -48,11 +55,6 @@ class SignInActivity : AppCompatActivity(), AuthListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
-        val loginAPI = LoginAPI(networkConnectionInterceptor)
-        val loginRepository = LoginRepository(loginAPI)
-        val factory = AuthViewModelFactory(loginRepository)
 
 
         val binding: ActivitySignInBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)

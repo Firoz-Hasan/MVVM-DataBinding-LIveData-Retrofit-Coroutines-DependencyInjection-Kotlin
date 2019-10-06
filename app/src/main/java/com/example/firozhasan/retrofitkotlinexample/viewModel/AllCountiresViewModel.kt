@@ -1,7 +1,7 @@
 package com.example.firozhasan.retrofitkotlinexample.viewModel
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 import com.example.firozhasan.retrofitkotlinexample.model.repos.Repository
 

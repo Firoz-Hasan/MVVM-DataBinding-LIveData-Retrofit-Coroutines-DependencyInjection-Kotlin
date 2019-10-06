@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import android.support.annotation.RequiresApi
+import androidx.annotation.RequiresApi
 import com.example.firozhasan.retrofitkotlinexample.util.NoInternetException
 import okhttp3.Interceptor
 import okhttp3.Response
