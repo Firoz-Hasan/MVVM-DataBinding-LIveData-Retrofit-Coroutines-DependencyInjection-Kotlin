@@ -25,13 +25,14 @@ class AuthViewModel(private val repository : LoginRepository) : ViewModel() {
         Coroutines.main {
           try {
               val loginResponse = repository.userLogin(email!!, password!!)
-              loginResponse?.user?.let {
+              loginResponse?.user?.let { it ->
                   authListener?.onSuccess(it)
                   if (it != null){
 
                       Intent(view.context, MainActivity::class.java).also {
                           it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                          view.context.startActivity(it)
+                          view.context.startActivity(it
+                          )
                       }
                     //  authListener?.gotoMainActivity()
                   }

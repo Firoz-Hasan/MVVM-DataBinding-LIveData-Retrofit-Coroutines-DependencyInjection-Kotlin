@@ -9,13 +9,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.R
-import com.example.firozhasan.retrofitkotlinexample.view.fragments.All_Countries_Frag
+import com.example.firozhasan.retrofitkotlinexample.view.fragments.AllCountriesFrag
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.Search_frag
 
 class MainActivity : AppCompatActivity() {
 
     var bottomNavigationView: BottomNavigationView? = null
-    var allCountriesFrag: All_Countries_Frag? = null
+    var allCountriesFrag: AllCountriesFrag? = null
     var searchFrag: Search_frag? = null
     var toolbar: Toolbar? = null
 
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         prepareToolBar()
         prepareBottomNavView()
         allCountriesFrag =
-            All_Countries_Frag()
+            AllCountriesFrag()
         searchFrag = Search_frag()
     }
 

@@ -1,9 +1,12 @@
 package com.example.firozhasan.retrofitkotlinexample
 
 import android.app.Application
+import com.example.firozhasan.retrofitkotlinexample.model.api.CountiresAPI
 import com.example.firozhasan.retrofitkotlinexample.model.api.LoginAPI
 import com.example.firozhasan.retrofitkotlinexample.model.api.NetworkConnectionInterceptor
+import com.example.firozhasan.retrofitkotlinexample.model.repos.AllCountriesRepository
 import com.example.firozhasan.retrofitkotlinexample.model.repos.LoginRepository
+import com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountriesViewModelFactory
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AuthViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -18,7 +21,10 @@ class MVVMapplicaiton : Application(), KodeinAware {
         import(androidXModule(this@MVVMapplicaiton))
         bind() from singleton { NetworkConnectionInterceptor(instance()) }
         bind() from singleton { LoginAPI(instance()) }
+        bind() from singleton { CountiresAPI(instance()) }
         bind() from singleton { LoginRepository(instance()) }
+        bind() from singleton { AllCountriesRepository(instance()) }
         bind() from provider { AuthViewModelFactory(instance())}
+        bind() from provider { AllCountriesViewModelFactory(instance()) }
     }
 }
