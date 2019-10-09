@@ -30,8 +30,7 @@ class AllCountriesRepository(private val countriesApi: CountiresAPI) : SafeApiRe
           try {
                 val response = apiRequest { countriesApi.getAllCountries() }
                 allCountires.postValue(response)
-              Log.d("vvvvvv",response[0].name)
-            } catch (e: Exception) {
+               } catch (e: Exception) {
                 e.printStackTrace()
             }
 

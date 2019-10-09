@@ -44,12 +44,16 @@ class AllCountriesFrag : Fragment(), KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this, factory).get(AllCountiresViewModel::class.java)
-        bindUI()
+        //bindUI()
+        Coroutines.main {
+            val country = viewModel.allcountries.await()
+            Log.d("value", country.toString())
+        }
     }
 
     private fun bindUI() = Coroutines.main {
         //progress_bar.show()
-        Log.d("value", viewModel.allcountries.await().toString())
+        //Log.d("value", viewModel.allcountries.await()[0].name)
 
 
      /*   viewModel.allcountries.await().observe(this, Observer {
