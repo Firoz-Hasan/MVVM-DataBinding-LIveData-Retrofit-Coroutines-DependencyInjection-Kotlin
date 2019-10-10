@@ -39,4 +39,28 @@ class AllCountriesRepository(private val countriesApi: CountiresAPI) : SafeApiRe
     suspend fun getALLCounty(): List<Country> {
         return apiRequest { countriesApi.getAllCountries() }
     }
+
+
+
+    suspend fun getALLCounty2(): LiveData<List<Country>> {
+        return withContext(Dispatchers.IO) {
+            //fetchAllCountries2()
+            // db.getQuoteDao().getQuotes()
+            allCountires
+        }
+    }
+
+
+    private suspend fun fetchAllCountries2() {
+        //val lastSavedAt = prefs.getLastSavedAt()
+
+            try {
+                val response = apiRequest { countriesApi.getAllCountries() }
+                allCountires.postValue(response)
+
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+    }
 }

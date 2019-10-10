@@ -45,9 +45,16 @@ class AllCountriesFrag : Fragment(), KodeinAware {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this, factory).get(AllCountiresViewModel::class.java)
         //bindUI()
+        Log.d("hellohello","sfsd ");
+
         Coroutines.main {
+            Log.d("hellohello","sfsd ");
             val country = viewModel.allcountries.await()
-            Log.d("value", country.toString())
+             country.observe(this, Observer {
+                 Log.d("hellohello","sfsd ${it[0]}");
+                 Toast.makeText(activity, "ooo : ${it[0].name}",Toast.LENGTH_LONG).show();
+
+            })
         }
     }
 

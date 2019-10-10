@@ -12,7 +12,7 @@ class AllCountiresViewModel(private val repository : AllCountriesRepository)
     fun onChangeFindCountryClick() = Repository.getALLCounty()*/
 
     val allcountries by lazyDeferred {
-        repository.getALLCounty()
+        repository.getALLCounty2()
     }
 
 
