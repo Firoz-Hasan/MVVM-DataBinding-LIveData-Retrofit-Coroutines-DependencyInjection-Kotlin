@@ -6,13 +6,16 @@ import com.example.firozhasan.retrofitkotlinexample.util.lazyDeferred
 
 class AllCountiresViewModel(private val repository : AllCountriesRepository)
     : ViewModel() {
+    //
+
+
     /* val allCountires: LiveData<List<Country>>
         get() = Repository.getAllCountires
 
     fun onChangeFindCountryClick() = Repository.getALLCounty()*/
 
     val allcountries by lazyDeferred {
-        repository.getALLCounty()
+        repository.getALLCounty2()
     }
 
 

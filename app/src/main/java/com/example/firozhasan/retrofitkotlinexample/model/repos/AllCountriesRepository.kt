@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.firozhasan.retrofitkotlinexample.model.api.CountiresAPI
 import com.example.firozhasan.retrofitkotlinexample.model.api.SafeApiRequest
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
+import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -15,11 +16,13 @@ class AllCountriesRepository(private val countriesApi: CountiresAPI) : SafeApiRe
     private val allCountires = MutableLiveData<List<Country>>()
     init {
         allCountires.observeForever {
-            saveQuotes(it)
+           // saveQuotes(it)
+           // fetchAllCountries2()
         }
     }
 
     private fun saveQuotes(allcountries: List<Country>?) {
+
 
     }
 
@@ -38,5 +41,29 @@ class AllCountriesRepository(private val countriesApi: CountiresAPI) : SafeApiRe
 
     suspend fun getALLCounty(): List<Country> {
         return apiRequest { countriesApi.getAllCountries() }
+    }
+
+
+
+    suspend fun getALLCounty2(): LiveData<List<Country>> {
+        return withContext(Dispatchers.IO) {
+            fetchAllCountries2()
+            // db.getQuoteDao().getQuotes()
+            allCountires
+        }
+    }
+
+
+    private suspend fun fetchAllCountries2() {
+        //val lastSavedAt = prefs.getLastSavedAt()
+            try {
+                val response = apiRequest { countriesApi.getAllCountries() }
+                Log.d("hellohello","sfsd 00000+${response} ")
+                allCountires.postValue(response)
+
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
     }
 }
