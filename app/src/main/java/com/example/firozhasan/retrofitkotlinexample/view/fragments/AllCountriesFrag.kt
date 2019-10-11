@@ -10,17 +10,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firozhasan.retrofitkotlinexample.R
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
-import com.example.firozhasan.retrofitkotlinexample.util.hide
-import com.example.firozhasan.retrofitkotlinexample.util.show
 import com.example.firozhasan.retrofitkotlinexample.view.adapters.CountiresAdapter
-import com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountiresViewModel
+import com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountriesViewModel
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountriesViewModelFactory
-import kotlinx.android.synthetic.main.activity_sign_in.*
-import org.kodein.di.Kodein
 
 
 import org.kodein.di.KodeinAware
@@ -35,7 +30,7 @@ class AllCountriesFrag : Fragment(), KodeinAware {
     override val kodein by kodein()
     private val factory: AllCountriesViewModelFactory by instance()
 
-    private lateinit var viewModel: AllCountiresViewModel
+    private lateinit var viewModel: AllCountriesViewModel
 
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: CountiresAdapter
@@ -43,7 +38,7 @@ class AllCountriesFrag : Fragment(), KodeinAware {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this, factory).get(AllCountiresViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, factory).get(AllCountriesViewModel::class.java)
         //bindUI()
        // Log.d("hellohello","sfsd ");
 
@@ -51,8 +46,7 @@ class AllCountriesFrag : Fragment(), KodeinAware {
             Log.d("hellohello","sfsd ")
             val country = viewModel.allcountries.await()
              country.observe(this, Observer {
-                 Log.d("hellohello","sfsd ${it[0].name}")
-                 Toast.makeText(activity, "ooo : ${it[0].name}",Toast.LENGTH_LONG).show();
+                 Log.d("hellohello","sfsd ${it}")
 
             })
         }
@@ -86,7 +80,7 @@ class AllCountriesFrag : Fragment(), KodeinAware {
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
         val mainViewModel = ViewModelProviders.of(this)
-                .get(AllCountiresViewModel::class.java)
+                .get(AllCountriesViewModel::class.java)
         //mainViewModel.onChangeFindCountryClick()
         mainViewModel.allCountires.observe(this, Observer<List<Country>> { t ->
             adapter = CountiresAdapter(activity!!, t)
@@ -107,7 +101,7 @@ class AllCountriesFrag : Fragment(), KodeinAware {
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
         val mainViewModel = ViewModelProviders.of(this)
-            .get(AllCountiresViewModel::class.java)
+            .get(AllCountriesViewModel::class.java)
         mainViewModel.onChangeFindCountryClick()
         mainViewModel.allCountires.observe(this, Observer<List<Country>> { t ->
             adapter = CountiresAdapter(activity!!, t)

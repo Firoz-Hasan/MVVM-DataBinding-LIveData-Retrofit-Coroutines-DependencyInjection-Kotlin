@@ -10,7 +10,7 @@
 
         <variable
             name="allCountiresViewmodel"
-            type="com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountiresViewModel" />
+            type="com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountriesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
