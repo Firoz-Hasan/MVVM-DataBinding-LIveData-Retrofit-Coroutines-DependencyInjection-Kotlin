@@ -27,8 +27,6 @@ interface LoginAPI {
                     .addInterceptor(networkConnectionInterceptor)
                     .build()
 
-
-
             return Retrofit.Builder()
                     .client(okHttpClient)
                     .baseUrl("https://api.simplifiedcoding.in/course-apis/mvvm/")

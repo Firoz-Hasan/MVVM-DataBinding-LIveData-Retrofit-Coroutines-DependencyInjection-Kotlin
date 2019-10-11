@@ -58,12 +58,12 @@ class AllCountriesRepository(private val countriesApi: CountriesAPI) : SafeApiRe
         Log.d("hellohello","fetchAllCountries2 outside fetch ")
             try {
                 val response = apiRequest { countriesApi.getAllCountries() }
-                Log.d("hellohello","fetchAllCountries2inside fetch 00000+${response} ")
+                Log.d("hellohello","fetchAllCountries2inside fetch try+${response} ")
                 allCountires.postValue(response)
 
             } catch (e: Exception) {
                 e.printStackTrace()
-                Log.d("hellohello","fetchAllCountries2inside fetch 00000+${e.toString()} ")
+                Log.d("hellohello","fetchAllCountries2inside fetch catch+${e.toString()} ")
 
             }
 

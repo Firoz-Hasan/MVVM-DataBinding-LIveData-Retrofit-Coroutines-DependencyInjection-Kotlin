@@ -10,12 +10,17 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firozhasan.retrofitkotlinexample.R
+import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
+import com.example.firozhasan.retrofitkotlinexample.util.hide
+import com.example.firozhasan.retrofitkotlinexample.util.show
 import com.example.firozhasan.retrofitkotlinexample.view.adapters.CountiresAdapter
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountriesViewModel
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountriesViewModelFactory
+import kotlinx.android.synthetic.main.all_countries_frag.*
 
 
 import org.kodein.di.KodeinAware
@@ -39,33 +44,38 @@ class AllCountriesFrag : Fragment(), KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this, factory).get(AllCountriesViewModel::class.java)
-        //bindUI()
+        bindUI()
        // Log.d("hellohello","sfsd ");
 
-        Coroutines.main {
+       /* Coroutines.main {
             Log.d("hellohello","sfsd ")
             val country = viewModel.allcountries.await()
              country.observe(this, Observer {
-                 Log.d("hellohello","sfsd ${it}")
+                 Log.d("country","sfsd ${it[0]}")
 
             })
-        }
+        }*/
     }
 
     private fun bindUI() = Coroutines.main {
-        //progress_bar.show()
+        progressBar.show()
         //Log.d("value", viewModel.allcountries.await()[0].name)
 
 
-     /*   viewModel.allcountries.await().observe(this, Observer {
-            progress_bar.hide()
-            initRecyclerView(it.toQuoteItem())
-        })*/
+        viewModel.allcountries.await().observe(this, Observer {
+            progressBar.hide()
+            initRecyclerView(it)
+        })
     }
 
-   /* private fun initRecyclerView(quoteItem: List<QuoteItem>) {
+    private fun initRecyclerView(list: List<Country>?) {
+        adapter = CountiresAdapter(activity!!, list)
+        recyclerView.adapter = adapter
+    }
 
-     *//*   val mAdapter = GroupAdapter<ViewHolder>().apply {
+    /* private fun initRecyclerView(quoteItem: List<QuoteItem>) {
+
+      *//*   val mAdapter = GroupAdapter<ViewHolder>().apply {
             addAll(quoteItem)
         }
 
@@ -94,24 +104,29 @@ class AllCountriesFrag : Fragment(), KodeinAware {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.all_countries_frag, container, false)
+        val view = inflater.inflate(R.layout.all_countries_frag, container, false)
 
-      /*  recyclerView = view?.findViewById(R.id.countries_RV)!!
+        recyclerView = view?.findViewById(R.id.countries_RV)!!
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
-        val mainViewModel = ViewModelProviders.of(this)
-            .get(AllCountriesViewModel::class.java)
-        mainViewModel.onChangeFindCountryClick()
-        mainViewModel.allCountires.observe(this, Observer<List<Country>> { t ->
-            adapter = CountiresAdapter(activity!!, t)
-            recyclerView.adapter = adapter
-        }
-        )*/
+
+        /*  recyclerView = view?.findViewById(R.id.countries_RV)!!
+          recyclerView.setHasFixedSize(true)
+          recyclerView.layoutManager = LinearLayoutManager(activity)
+
+          val mainViewModel = ViewModelProviders.of(this)
+              .get(AllCountriesViewModel::class.java)
+          mainViewModel.onChangeFindCountryClick()
+          mainViewModel.allCountires.observe(this, Observer<List<Country>> { t ->
+              adapter = CountiresAdapter(activity!!, t)
+              recyclerView.adapter = adapter
+          }
+          )*/
         
         
         
-      //  return view
+        return view
     }
 
 

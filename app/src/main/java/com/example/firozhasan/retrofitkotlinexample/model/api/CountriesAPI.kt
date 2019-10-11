@@ -10,7 +10,7 @@ import retrofit2.http.GET
 interface CountriesAPI {
 
     @GET("rest/v2/all")
-    fun getAllCountries() : Response<List<Country>>
+    suspend fun getAllCountries() : Response<List<Country>>
 
     companion object {
         operator fun invoke(
