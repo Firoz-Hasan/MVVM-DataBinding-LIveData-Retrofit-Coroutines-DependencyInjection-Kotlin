@@ -8,7 +8,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.firozhasan.retrofitkotlinexample.viewModel.CountryViewModel"/>
+            type="com.example.firozhasan.retrofitkotlinexample.viewModel.FindCountryViewModel"/>
     </data>
 
     <LinearLayout
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Find Country"
-            android:onClick="@{() -> viewmodel.onChangeFindCountryClick()}"
+            android:onClick="@{viewmodel::onChangeFindCountryClick}"
 
             />
 
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textColor="#e20606"
-            android:text="@{viewmodel.currentCountryName}"
+            android:text="lllll}"
             />
     </LinearLayout>
 </layout>
