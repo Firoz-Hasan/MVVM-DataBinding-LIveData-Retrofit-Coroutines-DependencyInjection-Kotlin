@@ -14,6 +14,7 @@ import kotlinx.coroutines.withContext
 class FindCountryRepository(private val countriesAPI: CountriesAPI) : SafeApiRequest(){
 
      val findCountry = MutableLiveData<List<Country>>()
+    val findCountry2 = MutableLiveData<String>()
 
     suspend fun findCountryByCapital(capital: String): LiveData<List<Country>> {
         return withContext(Dispatchers.IO) {
@@ -31,6 +32,7 @@ class FindCountryRepository(private val countriesAPI: CountriesAPI) : SafeApiReq
             val response = apiRequest { countriesAPI.getCountry(capital) }
             Log.d("hellohello","fetchAllCountries2inside fetch try+${response} ")
             findCountry.postValue(response)
+            findCountry2.postValue(response[0].name)
 
         } catch (e: Exception) {
             e.printStackTrace()

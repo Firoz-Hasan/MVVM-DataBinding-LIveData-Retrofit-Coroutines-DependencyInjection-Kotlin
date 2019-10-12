@@ -9,30 +9,28 @@ import androidx.lifecycle.ViewModel
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 import com.example.firozhasan.retrofitkotlinexample.model.repos.AllCountriesRepository
 import com.example.firozhasan.retrofitkotlinexample.model.repos.FindCountryRepository
+import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import com.example.firozhasan.retrofitkotlinexample.util.lazyDeferred
 
 class FindCountryViewModel(private val repository : FindCountryRepository)
     : ViewModel() {
 
-    val currentCountryName: MutableLiveData<List<Country>>
+    val currentCountryName: LiveData<List<Country>>
         get() = repository.findCountry
+
+    val currentCountryName2: LiveData<String>
+        get() = repository.findCountry2
 
     @Bindable
     val editTextCountryName = MutableLiveData<String>()
 
     fun onChangeFindCountryClick(view: View) {
         Log.d("hellohello", "find er view model e asche outside ")
-        lazyDeferred {
+//why courutines?????????????????????????????????????????????????????????????????????
+        Coroutines.main {
             Log.d("hellohello", "find er view model e asche inside ")
             repository.findCountryByCapital(editTextCountryName.value.toString())
         }
-    }
-
-    val changeFind by lazyDeferred {
-        Log.d("hellohello","view model e asche+ ")
-
-        repository.findCountryByCapital(editTextCountryName.value.toString())
-
     }
 
 

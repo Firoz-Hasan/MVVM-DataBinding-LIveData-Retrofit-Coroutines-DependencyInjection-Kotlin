@@ -27,9 +27,6 @@ class SearchFrag : Fragment(),KodeinAware {
     override val kodein by kodein()
     private val factory: FindCountryViewModelFactory by instance()
 
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
