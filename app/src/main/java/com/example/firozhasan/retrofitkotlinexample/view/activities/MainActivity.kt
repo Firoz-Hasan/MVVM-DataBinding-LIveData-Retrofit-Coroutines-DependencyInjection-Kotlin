@@ -10,13 +10,13 @@ import android.view.MenuItem
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.R
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.AllCountriesFrag
-import com.example.firozhasan.retrofitkotlinexample.view.fragments.Search_frag
+import com.example.firozhasan.retrofitkotlinexample.view.fragments.SearchFrag
 
 class MainActivity : AppCompatActivity() {
 
     var bottomNavigationView: BottomNavigationView? = null
     var allCountriesFrag: AllCountriesFrag? = null
-    var searchFrag: Search_frag? = null
+    var searchFrag: SearchFrag? = null
     var toolbar: Toolbar? = null
 
     // bottom navigation item selection
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         prepareBottomNavView()
         allCountriesFrag =
             AllCountriesFrag()
-        searchFrag = Search_frag()
+        searchFrag = SearchFrag()
     }
 
     fun prepareToolBar() {

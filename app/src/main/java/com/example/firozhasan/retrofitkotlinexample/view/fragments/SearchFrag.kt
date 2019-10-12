@@ -21,7 +21,7 @@ import org.kodein.di.generic.instance
 /**
  * A simple [Fragment] subclass.
  */
-class Search_frag : Fragment(),KodeinAware {
+class SearchFrag : Fragment(),KodeinAware {
 
     private lateinit var viewModel: FindCountryViewModel
     override val kodein by kodein()
