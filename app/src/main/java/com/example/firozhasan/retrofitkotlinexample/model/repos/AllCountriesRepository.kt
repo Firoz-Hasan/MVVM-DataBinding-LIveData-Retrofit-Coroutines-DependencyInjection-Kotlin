@@ -26,24 +26,6 @@ class AllCountriesRepository(private val countriesApi: CountriesAPI) : SafeApiRe
     }
 
 
-     suspend fun fetchAllCountries() {
-
-
-          try {
-                val response = apiRequest { countriesApi.getAllCountries() }
-                allCountires.postValue(response)
-               } catch (e: Exception) {
-                e.printStackTrace()
-            }
-
-    }
-
-    suspend fun getALLCounty(): List<Country> {
-        return apiRequest { countriesApi.getAllCountries() }
-    }
-
-
-
     suspend fun getALLCounty2(): LiveData<List<Country>> {
         return withContext(Dispatchers.IO) {
             fetchAllCountries2()

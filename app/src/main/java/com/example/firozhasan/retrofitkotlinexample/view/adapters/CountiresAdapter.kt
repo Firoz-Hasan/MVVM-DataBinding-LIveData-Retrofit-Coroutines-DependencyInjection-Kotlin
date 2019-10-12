@@ -1,16 +1,14 @@
 package com.example.firozhasan.retrofitkotlinexample.view.adapters
 
 import android.content.Context
-import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
 import com.example.firozhasan.retrofitkotlinexample.R
-import com.example.firozhasan.retrofitkotlinexample.databinding.AllCountriesFragBinding
-import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
-
 import com.example.firozhasan.retrofitkotlinexample.databinding.ItemCardBinding
+import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 
 class CountiresAdapter(private val context: Context, val countrylist: List<Country>?) : RecyclerView.Adapter<CountiresAdapter.CountryViewHolder>() {
 
@@ -46,33 +44,16 @@ class CountiresAdapter(private val context: Context, val countrylist: List<Count
        // p0.binding = country
         p0?.bind(country!!)
 
-
-
-  /*      holder.binding.setItemClick({ f ->
-            val intent = Intent(context, DetailseActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            intent.putExtra("Movie", movie)
-            context.startActivity(intent)
-        })*/
-
-
-
         Log.d("value", "${countrylist?.get(p1)?.flag}")
     }
-
-/*    class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder() {
-
-        var flag: ImageView = itemView.findViewById(R.id.flag_imv)
-        var country: TextView = itemView.findViewById(R.id.country_tv)
-        var city: TextView = itemView.findViewById(R.id.city_tv)
-
-    }*/
 
     class CountryViewHolder(val binding: ItemCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(obj: Any) {
+
             binding.executePendingBindings()
+
         }
     }
 

@@ -45,23 +45,10 @@ class AllCountriesFrag : Fragment(), KodeinAware {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this, factory).get(AllCountriesViewModel::class.java)
         bindUI()
-       // Log.d("hellohello","sfsd ");
-
-       /* Coroutines.main {
-            Log.d("hellohello","sfsd ")
-            val country = viewModel.allcountries.await()
-             country.observe(this, Observer {
-                 Log.d("country","sfsd ${it[0]}")
-
-            })
-        }*/
     }
 
     private fun bindUI() = Coroutines.main {
         progressBar.show()
-        //Log.d("value", viewModel.allcountries.await()[0].name)
-
-
         viewModel.allcountries.await().observe(this, Observer {
             progressBar.hide()
             initRecyclerView(it)
@@ -73,61 +60,15 @@ class AllCountriesFrag : Fragment(), KodeinAware {
         recyclerView.adapter = adapter
     }
 
-    /* private fun initRecyclerView(quoteItem: List<QuoteItem>) {
-
-      *//*   val mAdapter = GroupAdapter<ViewHolder>().apply {
-            addAll(quoteItem)
-        }
-
-        recyclerview.apply {
-            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-            adapter = mAdapter
-        }*//*
-
-   *//*     recyclerView = view?.findViewById(R.id.countries_RV)!!
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-
-        val mainViewModel = ViewModelProviders.of(this)
-                .get(AllCountriesViewModel::class.java)
-        //mainViewModel.onChangeFindCountryClick()
-        mainViewModel.allCountires.observe(this, Observer<List<Country>> { t ->
-            adapter = CountiresAdapter(activity!!, t)
-            recyclerView.adapter = adapter*//*
-
-
-    }
-*/
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.all_countries_frag, container, false)
-
         recyclerView = view?.findViewById(R.id.countries_RV)!!
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
-
-
-        /*  recyclerView = view?.findViewById(R.id.countries_RV)!!
-          recyclerView.setHasFixedSize(true)
-          recyclerView.layoutManager = LinearLayoutManager(activity)
-
-          val mainViewModel = ViewModelProviders.of(this)
-              .get(AllCountriesViewModel::class.java)
-          mainViewModel.onChangeFindCountryClick()
-          mainViewModel.allCountires.observe(this, Observer<List<Country>> { t ->
-              adapter = CountiresAdapter(activity!!, t)
-              recyclerView.adapter = adapter
-          }
-          )*/
-        
-        
-        
         return view
     }
-
-
 }

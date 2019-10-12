@@ -76,4 +76,7 @@ data class Country(
 
 	@field:SerializedName("currencies")
 	val currencies: List<CurrenciesItem?>? = null
+
+
+
 )
