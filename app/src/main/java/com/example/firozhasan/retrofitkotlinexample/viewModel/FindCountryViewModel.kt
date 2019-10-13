@@ -7,19 +7,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
-import com.example.firozhasan.retrofitkotlinexample.model.repos.AllCountriesRepository
 import com.example.firozhasan.retrofitkotlinexample.model.repos.FindCountryRepository
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
-import com.example.firozhasan.retrofitkotlinexample.util.lazyDeferred
 
 class FindCountryViewModel(private val repository : FindCountryRepository)
     : ViewModel() {
 
-    val currentCountryName: LiveData<List<Country>>
-        get() = repository.findCountry
+    val countryFullInfo: LiveData<List<Country>>
+        get() = repository.findCountryFullInfo
 
-    val currentCountryName2: LiveData<String>
-        get() = repository.findCountry2
+    val country: LiveData<String>
+        get() = repository.findCountryName
 
     @Bindable
     val editTextCountryName = MutableLiveData<String>()

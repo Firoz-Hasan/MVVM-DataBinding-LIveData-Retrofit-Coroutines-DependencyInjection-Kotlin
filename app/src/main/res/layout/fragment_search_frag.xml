@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textColor="#e20606"
-            android:text="@{viewmodel.currentCountryName2}"
+            android:text="@{viewmodel.country}"
             />
     </LinearLayout>
 </layout>
