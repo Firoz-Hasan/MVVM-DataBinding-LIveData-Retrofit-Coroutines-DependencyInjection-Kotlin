@@ -10,7 +10,13 @@
         <variable
             name="country"
             type="com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country" />
+        <variable
+                name="imageUrl"
+                type="com.example.firozhasan.retrofitkotlinexample.view.adapters.ImageBindingAdapter" />
+
     </data>
+
+
 
 
     <androidx.cardview.widget.CardView
@@ -31,7 +37,7 @@
                 android:id="@+id/flag_imv"
                 android:layout_width="120dp"
                 android:layout_height="85dp"
-               android:src="@{country.flag}"
+                    app:image_url="@{country.flag}"
                    />
 
             <TextView

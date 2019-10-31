@@ -1,7 +1,6 @@
 package com.example.firozhasan.retrofitkotlinexample.model.modelClass
 
 
-import androidx.databinding.BaseObservable
 import com.google.gson.annotations.SerializedName
 
 data class Country(
