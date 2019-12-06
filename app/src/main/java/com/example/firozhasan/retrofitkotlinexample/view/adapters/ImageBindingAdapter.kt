@@ -9,7 +9,7 @@ import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
 object ImageBindingAdapter {
     @JvmStatic
-    @BindingAdapter("app:image_url")
+    @BindingAdapter("android:src")
     fun setImageUrl(view: ImageView, url: String) {
        // Glide.with(view.context).load(url).into(view)
         GlideToVectorYou.justLoadImage(view.context as Activity?, Uri.parse(url), view)

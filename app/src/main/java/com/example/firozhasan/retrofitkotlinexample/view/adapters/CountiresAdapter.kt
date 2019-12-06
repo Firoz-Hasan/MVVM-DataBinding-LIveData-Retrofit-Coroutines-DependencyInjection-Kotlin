@@ -39,15 +39,16 @@ class CountiresAdapter(private val context: Context, val countrylist: List<Count
         var IMAGE_URI = countrylist?.get(p1)?.flag
         GlideToVectorYou.justLoadImage(context as Activity?, Uri.parse(IMAGE_URI), p0.flag)
 */
-        val country = countrylist?.get(p1)
+      /*  val country = countrylist?.get(p1)
         p0.binding.country=country
        // p0.binding = country
-        p0?.bind(country!!)
+        p0?.bind(country!!)*/
+        p0.recyclerviewMovieBinding.country = this!!.countrylist!![p1]
 
         Log.d("value", "${countrylist?.get(p1)?.flag}")
     }
 
-    class CountryViewHolder(val binding: ItemCardBinding) :
+ /*   class CountryViewHolder(val binding: ItemCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(obj: Any) {
@@ -55,6 +56,10 @@ class CountiresAdapter(private val context: Context, val countrylist: List<Count
             binding.executePendingBindings()
 
         }
-    }
+    }*/
+
+    inner class CountryViewHolder(
+        val recyclerviewMovieBinding: ItemCardBinding
+    ) : RecyclerView.ViewHolder(recyclerviewMovieBinding.root)
 
 }

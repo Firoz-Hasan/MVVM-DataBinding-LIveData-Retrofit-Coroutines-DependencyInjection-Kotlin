@@ -22,10 +22,11 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
+
 class SignInActivity : AppCompatActivity(), AuthListener, KodeinAware {
 
     override val kodein by kodein()
-    private val factory : AuthViewModelFactory by instance()
+    private val factory: AuthViewModelFactory by instance()
 
     override fun gotoMainActivity() {
         Intent(this, MainActivity::class.java).also {
@@ -42,14 +43,14 @@ class SignInActivity : AppCompatActivity(), AuthListener, KodeinAware {
     override fun onSuccess(user: UserX?) {
         progress_bar.hide()
         signIN_LL?.snackbar("${user?.name} is logged In")
-      //  toast("${user?.name} is logged In")
+        //  toast("${user?.name} is logged In")
 
     }
 
     override fun onFailure(message: String) {
         signIN_LL?.snackbar(message)
         progress_bar.hide()
-     //   toast(message)
+        //   toast(message)
 
     }
 
@@ -67,3 +68,4 @@ class SignInActivity : AppCompatActivity(), AuthListener, KodeinAware {
 
     }
 }
+
