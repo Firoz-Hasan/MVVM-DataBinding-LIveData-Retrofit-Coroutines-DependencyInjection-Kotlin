@@ -12,7 +12,7 @@ class CountryViewModel : ViewModel() {
         get() = Repository.currentCountryName
 
 
-    @Bindable
+
     val editTextCountryName = MutableLiveData<String>()
 
     fun onChangeFindCountryClick() = Repository.getCountyNameByCapital(editTextCountryName.value.toString())

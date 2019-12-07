@@ -1,4 +1,4 @@
-package com.example.firozhasan.retrofitkotlinexample.`interface`
+package com.example.firozhasan.retrofitkotlinexample.inter
 
 interface Constant {
     companion object {

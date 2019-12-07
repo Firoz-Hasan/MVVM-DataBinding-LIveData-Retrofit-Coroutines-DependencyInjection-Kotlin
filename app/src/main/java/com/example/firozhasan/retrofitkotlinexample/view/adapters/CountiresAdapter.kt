@@ -12,9 +12,9 @@ import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 
 class CountiresAdapter(private val context: Context, val countrylist: List<Country>?) : RecyclerView.Adapter<CountiresAdapter.CountryViewHolder>() {
 
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CountryViewHolder {
-       /* val view = LayoutInflater.from(context).inflate(R.layout.item_card, p0, false)
-        return CountryViewHolder(view)*/
+   /* override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CountryViewHolder {
+       *//* val view = LayoutInflater.from(context).inflate(R.layout.item_card, p0, false)
+        return CountryViewHolder(view)*//*
 
 
         val binding = DataBindingUtil.inflate<ItemCardBinding>(
@@ -24,8 +24,17 @@ class CountiresAdapter(private val context: Context, val countrylist: List<Count
             false
         )
         return CountryViewHolder(binding)
-    }
+    }*/
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+            CountryViewHolder(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.context),
+                            R.layout.item_card,
+                            parent,
+                            false
+                    )
+            )
     override fun getItemCount(): Int {
 
         return countrylist?.size!!

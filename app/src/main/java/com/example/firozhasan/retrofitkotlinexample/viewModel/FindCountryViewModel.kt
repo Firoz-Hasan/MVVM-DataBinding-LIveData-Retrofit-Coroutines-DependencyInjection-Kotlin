@@ -19,7 +19,7 @@ class FindCountryViewModel(private val repository : FindCountryRepository)
     val country: LiveData<String>
         get() = repository.findCountryName
 
-    @Bindable
+
     val editTextCountryName = MutableLiveData<String>()
 
     fun onChangeFindCountryClick(view: View) {

@@ -7,12 +7,13 @@ import androidx.databinding.BindingAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
 
-object ImageBindingAdapter {
-    @JvmStatic
-    @BindingAdapter("image")
-    fun setImageUrl(view: ImageView, url: String) {
-       // Glide.with(view.context).load(url).into(view)
-        GlideToVectorYou.justLoadImage(view.context as Activity?, Uri.parse(url), view)
+@BindingAdapter("image")
+fun loadImage(view: ImageView, url: String) {
+    /* Glide.with(view)
+         .load(url)
+         .into(view)
+     Log.d("ttt", url)*/
 
-    }
+    GlideToVectorYou.justLoadImage(view.context as Activity?, Uri.parse(url), view)
+
 }
