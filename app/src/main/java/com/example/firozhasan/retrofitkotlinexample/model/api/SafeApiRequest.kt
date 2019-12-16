@@ -32,7 +32,7 @@ abstract class SafeApiRequest {
                 }
 
             }
-            message.append("Error code${response.code()}")
+            message.append("\nError code ${response.code()}")
             Log.d("hellohello","safeapireqfail 00000+${response.code()} ")
             throw ApiException(message.toString())
         }
