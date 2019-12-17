@@ -97,7 +97,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:text="Don't have an account? Sign up!"
+                android:text="Don't have an account? Sign up!
+                \n Email :probelalkhan@gmail.com
+\n pass : 123456"
                 android:textColor="#ffffff" />
 
         <TextView
