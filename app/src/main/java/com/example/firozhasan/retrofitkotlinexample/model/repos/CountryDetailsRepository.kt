@@ -12,10 +12,10 @@ import kotlinx.coroutines.withContext
 class CountryDetailsRepository (private val countriesAPI: CountriesAPI) : SafeApiRequest() {
 
 
-    val findCountryFullInfo = MutableLiveData<Country>()
+    val findCountryFullInfo = MutableLiveData<List<Country>>()
     val findCountryName = MutableLiveData<String>()
 
-    suspend fun getCountryDetails(alpha2Code: String): MutableLiveData<Country> {
+    suspend fun getCountryDetails(alpha2Code: String): LiveData<List<Country>> {
         return withContext(Dispatchers.IO) {
             fetchCountryDetails(alpha2Code)
             // db.getQuoteDao().getQuotes()
