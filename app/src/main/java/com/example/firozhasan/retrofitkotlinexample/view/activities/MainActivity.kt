@@ -9,13 +9,16 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.example.firozhasan.retrofitkotlinexample.R
+import com.example.firozhasan.retrofitkotlinexample.common.MainListener
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.AllCountriesFrag
+import com.example.firozhasan.retrofitkotlinexample.view.fragments.CountriesDetailsFrag
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.SearchFrag
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainListener {
 
     var bottomNavigationView: BottomNavigationView? = null
     var allCountriesFrag: AllCountriesFrag? = null
+    var countriesDetails: CountriesDetailsFrag? = null
     var searchFrag: SearchFrag? = null
     var toolbar: Toolbar? = null
 
@@ -66,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         allCountriesFrag =
             AllCountriesFrag()
         searchFrag = SearchFrag()
+        countriesDetails = CountriesDetailsFrag()
     }
 
     fun prepareToolBar() {
@@ -96,6 +100,21 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
+    }
+
+    override fun gotoDetailsFragment() {
+        addFragment(countriesDetails!!, allCountriesFrag!!)
+
+        /*   val fragment: Fragment = CountriesDetailsFrag()
+           val fragment2: Fragment = AllCountriesFrag()
+           //activity.supportFragmentManager.beginTransaction().replace(R.id.coun, myFragment).addToBackStack(null).commit()
+           supportFragmentManager
+                   .beginTransaction()
+                   .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
+                   .hide(fragment2)
+                   .add(R.id.content, fragment, fragment.javaClass.simpleName)
+                   .show(fragment)
+                   .commit()*/
     }
 
 
