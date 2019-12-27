@@ -1,6 +1,6 @@
 package com.example.firozhasan.retrofitkotlinexample.model.api
 
-import com.example.firozhasan.retrofitkotlinexample.inter.Constant
+import com.example.firozhasan.retrofitkotlinexample.common.Constant
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 import okhttp3.OkHttpClient
 import retrofit2.Response

@@ -10,7 +10,6 @@ class AllCountriesViewModel(private val repository : AllCountriesRepository)
 
     val allcountries by lazyDeferred {
         Log.d("hellohello","view model e asche+ ")
-
         repository.getALLCounty2()
     }
 

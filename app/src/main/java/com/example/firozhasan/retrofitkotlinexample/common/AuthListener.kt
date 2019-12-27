@@ -1,4 +1,4 @@
-package com.example.firozhasan.retrofitkotlinexample.inter
+package com.example.firozhasan.retrofitkotlinexample.common
 
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.UserX
 

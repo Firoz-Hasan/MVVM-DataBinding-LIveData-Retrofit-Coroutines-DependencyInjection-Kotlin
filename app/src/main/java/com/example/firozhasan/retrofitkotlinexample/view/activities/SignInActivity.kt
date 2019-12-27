@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.firozhasan.retrofitkotlinexample.R
-import com.example.firozhasan.retrofitkotlinexample.inter.AuthListener
+import com.example.firozhasan.retrofitkotlinexample.common.AuthListener
 import com.example.firozhasan.retrofitkotlinexample.databinding.ActivitySignInBinding
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.UserX
 import com.example.firozhasan.retrofitkotlinexample.util.hide
