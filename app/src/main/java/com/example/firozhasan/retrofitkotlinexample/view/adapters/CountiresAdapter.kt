@@ -63,11 +63,11 @@ class CountiresAdapter(private val context: Context, val countrylist: List<Count
        // p0.binding = country
         p0?.bind(country!!)*/
         p0.recyclerviewMovieBinding.country = this.countrylist!![p1]
-        p0.recyclerviewMovieBinding.itemCard1?.setOnClickListener {
+    /*    p0.recyclerviewMovieBinding.itemCard1?.setOnClickListener {
             Log.d("value", "${countrylist?.get(p1)?.name}")
             communicator?.gotoDetailsFragment(countrylist?.get(p1)?.alpha2Code!!)
 
-        }
+        }*/
 
 
     }

@@ -1,6 +1,7 @@
 package com.example.firozhasan.retrofitkotlinexample.viewModel
 
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModel
 import com.example.firozhasan.retrofitkotlinexample.model.repos.CountryDetailsRepository
 import com.example.firozhasan.retrofitkotlinexample.util.lazyDeferred
@@ -9,5 +10,9 @@ class CountryDetailsViewModel(private val repository : CountryDetailsRepository)
     val countryDetails by lazyDeferred {
         Log.d("hellohello","view model e asche+ ")
         repository.getCountryDetails("AR")
+    }
+
+    fun onCardClicked(view: View) {
+        Log.d("hellohello","bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ")
     }
 }
