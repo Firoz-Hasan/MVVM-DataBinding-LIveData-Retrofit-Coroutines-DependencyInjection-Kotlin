@@ -8,6 +8,6 @@ import com.example.firozhasan.retrofitkotlinexample.util.lazyDeferred
 class CountryDetailsViewModel(private val repository : CountryDetailsRepository) : ViewModel() {
     val countryDetails by lazyDeferred {
         Log.d("hellohello","view model e asche+ ")
-        repository.getCountryDetails("AF")
+        repository.getCountryDetails("AR")
     }
 }

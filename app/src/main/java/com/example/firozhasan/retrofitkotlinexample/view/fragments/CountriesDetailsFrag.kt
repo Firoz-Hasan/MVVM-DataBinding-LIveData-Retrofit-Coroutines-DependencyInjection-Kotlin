@@ -42,7 +42,7 @@ class CountriesDetailsFrag: Fragment(), KodeinAware {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this, factory).get(CountryDetailsViewModel::class.java)
+        //viewModel = ViewModelProviders.of(this, factory).get(CountryDetailsViewModel::class.java)
         bindUI()
     }
 
