@@ -18,7 +18,7 @@ interface CountriesAPI {
     suspend fun getCountry(@Path("capital") capitalOfCountry: String): Response<List<Country>>
 
     @GET("rest/v2/alpha/{code}")
-    suspend fun getCountryDetails(@Path("code") alpha2Code: String): Response<List<Country>>
+    suspend fun getCountryDetails(@Path("code") alpha2Code: String): Response<Country>
 
     companion object {
         operator fun invoke(

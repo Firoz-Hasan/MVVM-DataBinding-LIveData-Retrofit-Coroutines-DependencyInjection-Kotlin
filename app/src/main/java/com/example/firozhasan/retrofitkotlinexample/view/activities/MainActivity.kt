@@ -1,18 +1,20 @@
 package com.example.firozhasan.retrofitkotlinexample.view.activities
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import com.example.firozhasan.retrofitkotlinexample.R
 import com.example.firozhasan.retrofitkotlinexample.common.MainListener
+import com.example.firozhasan.retrofitkotlinexample.util.toast
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.AllCountriesFrag
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.CountriesDetailsFrag
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.SearchFrag
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity(), MainListener {
 
@@ -102,9 +104,16 @@ class MainActivity : AppCompatActivity(), MainListener {
 
     }
 
-    override fun gotoDetailsFragment() {
+    override fun gotoDetailsFragment(alpha2Code: String) {
+        val args = Bundle()
+        args.putString("alpha", alpha2Code)
+        countriesDetails?.setArguments(args)
+
+
+
         addFragment(countriesDetails!!, allCountriesFrag!!)
 
+        toast(alpha2Code)
         /*   val fragment: Fragment = CountriesDetailsFrag()
            val fragment2: Fragment = AllCountriesFrag()
            //activity.supportFragmentManager.beginTransaction().replace(R.id.coun, myFragment).addToBackStack(null).commit()
