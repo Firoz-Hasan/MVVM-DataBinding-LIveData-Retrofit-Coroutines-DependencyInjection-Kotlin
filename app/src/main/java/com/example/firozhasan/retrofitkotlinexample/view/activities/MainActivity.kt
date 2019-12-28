@@ -84,6 +84,20 @@ class MainActivity : AppCompatActivity(), MainListener {
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
+    private fun addFragment1(fragment: Fragment, fragment2: Fragment) {
+
+            supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
+                    .hide(fragment2)
+                    .add(R.id.content, fragment, fragment.javaClass.simpleName)
+                    .show(fragment)
+                    .addToBackStack(null)
+                    .commit()
+
+    }
+
+
     private fun addFragment(fragment: Fragment, fragment2: Fragment) {
         if (fragment.isAdded) {
             supportFragmentManager
@@ -108,10 +122,7 @@ class MainActivity : AppCompatActivity(), MainListener {
         val args = Bundle()
         args.putString("alpha", alpha2Code)
         countriesDetails?.setArguments(args)
-
-
-
-        addFragment(countriesDetails!!, allCountriesFrag!!)
+        addFragment1(countriesDetails!!, allCountriesFrag!!)
 
         toast(alpha2Code)
         /*   val fragment: Fragment = CountriesDetailsFrag()
