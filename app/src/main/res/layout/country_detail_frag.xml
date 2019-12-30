@@ -9,7 +9,14 @@
     <data>
         <variable
                 name="viewmodel"
-                type="com.example.firozhasan.retrofitkotlinexample.viewModel.CountryDetailsViewModel"/>
+                type="com.example.firozhasan.retrofitkotlinexample.viewModel.CountryDetailsViewModel"
+                />
+
+        <variable
+                name="country"
+                type="com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country"
+                />
+
     </data>
 <ScrollView
 
@@ -87,7 +94,7 @@
                                 android:id="@+id/capital_text_view_detail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
+                                android:text="@{viewmodel.capital}"
                                 android:layout_marginLeft="@dimen/margin_8dp"
                                 style="@style/DefaultTextView"/>
 

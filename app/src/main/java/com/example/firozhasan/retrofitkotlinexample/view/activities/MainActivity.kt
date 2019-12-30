@@ -31,12 +31,12 @@ class MainActivity : AppCompatActivity(), MainListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 when (item.itemId) {
                     R.id.home -> {
-                        addFragment(allCountriesFrag!!, searchFrag!!,countriesDetails!!)
+                        addFragment(allCountriesFrag!!, searchFrag!!)
                         toolbar!!.visibility = View.VISIBLE
                         return true
                     }
                     R.id.find -> {
-                        addFragment(searchFrag!!, allCountriesFrag!!,countriesDetails!!)
+                        addFragment(searchFrag!!, allCountriesFrag!!)
                         toolbar!!.visibility = View.INVISIBLE
                         return true
                     }
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), MainListener {
         setContentView(R.layout.activity_main)
         prepareAllView()
 // add kountry list fragment as default fragment
-        addFragment(allCountriesFrag!!, searchFrag!!, countriesDetails!!)
+        addFragment(allCountriesFrag!!, searchFrag!!)
 
 
 
@@ -84,12 +84,12 @@ class MainActivity : AppCompatActivity(), MainListener {
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    private fun addFragment1(fragment: Fragment, fragment2: Fragment, fragment3: Fragment) {
+    private fun addFragment1(fragment: Fragment, fragment2: Fragment) {
 
             supportFragmentManager
                     .beginTransaction()
                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
-                    .hide(fragment2) .hide(fragment3)
+                    .hide(fragment2)
                     .add(R.id.content, fragment, fragment.javaClass.simpleName)
                     .show(fragment)
                     .addToBackStack(null)
@@ -98,24 +98,19 @@ class MainActivity : AppCompatActivity(), MainListener {
     }
 
 
-    private fun addFragment(fragment: Fragment, fragment2: Fragment, fragment3: Fragment) {
+    private fun addFragment(fragment: Fragment, fragment2: Fragment) {
         if (fragment.isAdded) {
-            toast("1st= ${fragment.isAdded}")
             supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                 .hide(fragment2)
-                    .hide(fragment3)
-
                 .show(fragment)
                 .commit()
         } else {
-            toast("2nd= ${fragment.isAdded}")
             supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                 .hide(fragment2)
-                    .hide(fragment3)
                 .add(R.id.content, fragment, fragment.javaClass.simpleName)
                 .show(fragment)
                 .commit()
@@ -127,7 +122,7 @@ class MainActivity : AppCompatActivity(), MainListener {
         val args = Bundle()
         args.putString("alpha", alpha2Code)
         countriesDetails?.setArguments(args)
-        addFragment1(countriesDetails!!, allCountriesFrag!!, searchFrag!!)
+        addFragment1(countriesDetails!!, allCountriesFrag!!)
 
         toast(alpha2Code)
         /*   val fragment: Fragment = CountriesDetailsFrag()

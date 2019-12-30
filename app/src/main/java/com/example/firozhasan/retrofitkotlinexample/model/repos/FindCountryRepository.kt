@@ -14,6 +14,7 @@ class FindCountryRepository(private val countriesAPI: CountriesAPI) : SafeApiReq
      val findCountryFullInfo = MutableLiveData<List<Country>>()
     val findCountryName = MutableLiveData<String>()
 
+
     suspend fun findCountryByCapital(capital: String): LiveData<List<Country>> {
         return withContext(Dispatchers.IO) {
             fetchACountry(capital)

@@ -10,11 +10,6 @@
         <variable
             name="country"
             type="com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country" />
-
-        <variable
-                name="clickListener"
-                type="com.example.firozhasan.retrofitkotlinexample.view.adapters.SleepNightListener" />
-
     </data>
 
 
@@ -24,10 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:elevation="5dp"
-        card_view:cardCornerRadius="5dp"
-            android:onClick="@{() -> clickListener.onClick(country)}"
-
-            >
+        card_view:cardCornerRadius="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"

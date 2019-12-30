@@ -23,9 +23,9 @@ class CountriesDetailsFrag: Fragment(), KodeinAware {
     private lateinit var viewModel: CountryDetailsViewModel
     override val kodein by kodein()
     private val factory: CountryDetailsViewModelFactory by instance()
-
+    var alphaValue = "empty"
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val alphaValue = arguments!!.getString("alpha")
+         alphaValue = arguments!!.getString("alpha")
         Log.d("alhabibi", "yaalpha = $alphaValue")
 
         viewModel = ViewModelProviders.of(this, factory).get(CountryDetailsViewModel::class.java)
@@ -48,9 +48,6 @@ class CountriesDetailsFrag: Fragment(), KodeinAware {
 
     private fun bindUI() = Coroutines.main {
         //progressBar.show()
-        viewModel.countryDetails.await().observe(this, Observer {
-            //progressBar.hide()
-            //initRecyclerView(it)
-        })
+        viewModel.alpha2CountryDetails(alphaValue)
     }
 }
