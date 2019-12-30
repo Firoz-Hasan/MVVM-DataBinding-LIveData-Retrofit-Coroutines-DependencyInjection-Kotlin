@@ -33,6 +33,9 @@ class CountryDetailsViewModel(private val repository : CountryDetailsRepository)
     val language: LiveData<String>
         get() = repository.detailsLanguage
 
+val flag: LiveData<String>
+        get() = repository.detailsFlag
+
 
 
     suspend fun alpha2CountryDetails(alpha : String) {

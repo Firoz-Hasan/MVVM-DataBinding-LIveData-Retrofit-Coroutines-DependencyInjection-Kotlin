@@ -21,6 +21,7 @@ class CountryDetailsRepository (private val countriesAPI: CountriesAPI) : SafeAp
     val detailsTimezone = MutableLiveData<String>()
     val detailsCurrency = MutableLiveData<String>()
     val detailsLanguage = MutableLiveData<String>()
+    val detailsFlag = MutableLiveData<String>()
 
 
     suspend fun getCountryDetails(alpha2Code: String): LiveData<List<Country>> {
@@ -37,17 +38,19 @@ class CountryDetailsRepository (private val countriesAPI: CountriesAPI) : SafeAp
         //val lastSavedAt = prefs.getLastSavedAt()
         Log.d("hellohello","fetchCountryDetails outside fetch ")
         try {
+
             val response = apiRequest { countriesAPI.getCountryDetails(alpha2Code) }
             detailsCapital.postValue(response.capital)
             detailsCountry.postValue(response.name)
             detailsArea.postValue(response.area.toString())
             detailsPopulation.postValue(response.population.toString())
             detailsRegion.postValue(response.region)
+            detailsFlag.postValue(response.flag)
             detailsTimezone.postValue(response.timezones!![0])
             detailsCurrency.postValue(response.currencies!![0]?.name)
             detailsLanguage.postValue(response.languages!![0]?.name)
 
-            Log.d("hellohello","fetchCountryDetails fetch try+${response} ")
+            Log.d("hellohello","fetchCountryDetails fetch try+${response.flag} ")
             //findCountryFullInfo.postValue(response)
             //findCountryName.postValue(response[0].name)
 

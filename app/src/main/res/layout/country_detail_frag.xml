@@ -65,8 +65,9 @@
                                 android:layout_width="70dp"
                                 android:layout_height="40dp"
                                 android:scaleType="fitXY"
-                                android:background="@color/black"
-                                />
+                                    app:image="@{viewmodel.flag}"
+
+                                    />
 
                             <TextView
                                 android:id="@+id/name_text_view_detail"
