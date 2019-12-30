@@ -13,8 +13,15 @@ class CountryDetailsRepository (private val countriesAPI: CountriesAPI) : SafeAp
 
 
     val findCountryFullInfo = MutableLiveData<List<Country>>()
-    val findCountryName = MutableLiveData<String>()
-    val detailsCapitalName = MutableLiveData<String>()
+    val detailsCountry = MutableLiveData<String>()
+    val detailsCapital = MutableLiveData<String>()
+    val detailsArea = MutableLiveData<String>()
+    val detailsPopulation = MutableLiveData<String>()
+    val detailsRegion = MutableLiveData<String>()
+    val detailsTimezone = MutableLiveData<String>()
+    val detailsCurrency = MutableLiveData<String>()
+    val detailsLanguage = MutableLiveData<String>()
+
 
     suspend fun getCountryDetails(alpha2Code: String): LiveData<List<Country>> {
         return withContext(Dispatchers.IO) {
@@ -31,7 +38,15 @@ class CountryDetailsRepository (private val countriesAPI: CountriesAPI) : SafeAp
         Log.d("hellohello","fetchCountryDetails outside fetch ")
         try {
             val response = apiRequest { countriesAPI.getCountryDetails(alpha2Code) }
-            detailsCapitalName.postValue(response.capital)
+            detailsCapital.postValue(response.capital)
+            detailsCountry.postValue(response.name)
+            detailsArea.postValue(response.area.toString())
+            detailsPopulation.postValue(response.population.toString())
+            detailsRegion.postValue(response.region)
+            detailsTimezone.postValue(response.timezones!![0])
+            detailsCurrency.postValue(response.currencies!![0]?.name)
+            detailsLanguage.postValue(response.languages!![0]?.name)
+
             Log.d("hellohello","fetchCountryDetails fetch try+${response} ")
             //findCountryFullInfo.postValue(response)
             //findCountryName.postValue(response[0].name)

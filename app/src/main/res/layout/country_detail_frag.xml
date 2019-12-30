@@ -72,7 +72,7 @@
                                 android:id="@+id/name_text_view_detail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
+                                android:text="@{viewmodel.country}"
                                 android:layout_marginLeft="@dimen/margin_8dp"
                                 android:layout_gravity="center"
                                 style="@style/DefaultTextView"/>
@@ -115,7 +115,7 @@
                                 android:id="@+id/area_text_view_detail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
+                                android:text="@{viewmodel.area}"
                                 android:textColor="@color/black"
                                 android:layout_marginLeft="@dimen/margin_8dp"
                                 style="@style/DefaultTextView"/>
@@ -137,7 +137,7 @@
                                 android:id="@+id/population_text_view_detail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
+                                android:text="@{viewmodel.population}"
                                 style="@style/DefaultTextView"
                                 android:layout_marginLeft="@dimen/margin_8dp"/>
 
@@ -158,7 +158,7 @@
                                 android:id="@+id/region_text_view_detail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
+                                android:text="@{viewmodel.region}"
                                 style="@style/DefaultTextView"
                                 android:layout_marginLeft="@dimen/margin_8dp"/>
 
@@ -179,7 +179,7 @@
                                 android:id="@+id/time_zone_text_view_detail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
+                                android:text="@{viewmodel.timezone}"
                                 style="@style/DefaultTextView"
                                 android:layout_marginLeft="@dimen/margin_8dp"/>
 
@@ -200,7 +200,7 @@
                                 android:id="@+id/language_text_view_detail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
+                                android:text="@{viewmodel.language}"
                                 android:layout_marginLeft="@dimen/margin_8dp"
                                 style="@style/DefaultTextView"/>
 
@@ -221,7 +221,7 @@
                                 android:id="@+id/currency_text_view_detail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loading..."
+                                android:text="@{viewmodel.currency}"
                                 style="@style/DefaultTextView"
                                 android:layout_marginLeft="@dimen/margin_8dp"/>
 
