@@ -70,4 +70,7 @@ dependencies {
     //annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
     kapt "com.android.databinding:compiler:$android_plugin_version"
+
+    //google map
+    implementation 'com.google.android.gms:play-services-maps:10.2.0'
 }
