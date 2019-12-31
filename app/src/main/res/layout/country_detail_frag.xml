@@ -73,8 +73,8 @@
                                 android:id="@+id/name_text_view_detail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@{viewmodel.country}"
                                 android:layout_marginLeft="@dimen/margin_8dp"
+                                    android:text="@{viewmodel.country != null ? viewmodel.country : `Loading`}"
                                 android:layout_gravity="center"
                                 style="@style/DefaultTextView"/>
 
