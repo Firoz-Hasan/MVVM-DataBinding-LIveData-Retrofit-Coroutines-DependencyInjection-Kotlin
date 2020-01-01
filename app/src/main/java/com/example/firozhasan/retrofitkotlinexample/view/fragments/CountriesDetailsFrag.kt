@@ -14,16 +14,27 @@ import com.example.firozhasan.retrofitkotlinexample.databinding.CountryDetailFra
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import com.example.firozhasan.retrofitkotlinexample.viewModel.CountryDetailsViewModel
 import com.example.firozhasan.retrofitkotlinexample.viewModel.CountryDetailsViewModelFactory
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
 
 
-class CountriesDetailsFrag: Fragment(), KodeinAware {
+class CountriesDetailsFrag: Fragment(), KodeinAware, OnMapReadyCallback {
+    var mapFragment: SupportMapFragment? = null
+    var globalLatLng: LatLng? = null
+
     private lateinit var viewModel: CountryDetailsViewModel
     override val kodein by kodein()
     private val factory: CountryDetailsViewModelFactory by instance()
     var alphaValue = "empty"
+    //var latLng = LatLng(viewModel.lat,viewModel.lng)
+    globalLatLng  = latLng
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
          alphaValue = arguments!!.getString("alpha")
         Log.d("alhabibi", "yaalpha = $alphaValue")
@@ -49,5 +60,23 @@ class CountriesDetailsFrag: Fragment(), KodeinAware {
     private fun bindUI() = Coroutines.main {
         //progressBar.show()
         viewModel.alpha2CountryDetails(alphaValue)
+    }
+
+    fun prepareMap() {
+        mapFragment = supportFragmentManager
+                .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment!!.getMapAsync(this)
+    }
+
+    override fun onMapReady(p0: GoogleMap?) {
+        placeMarker(p0!!,globalLatLng!!)
+    }
+
+    // place marker on the country geo graphic location
+    fun placeMarker(googleMap: GoogleMap, latLng: LatLng) {
+        val markerOptions = MarkerOptions()
+        markerOptions.position(latLng)
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,4f))
+        googleMap.addMarker(markerOptions)
     }
 }

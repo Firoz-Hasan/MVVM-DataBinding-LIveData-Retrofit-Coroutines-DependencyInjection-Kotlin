@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.firozhasan.retrofitkotlinexample.model.api.CountriesAPI
 import com.example.firozhasan.retrofitkotlinexample.model.api.SafeApiRequest
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
+import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -22,8 +23,8 @@ class CountryDetailsRepository(private val countriesAPI: CountriesAPI) : SafeApi
     val detailsCurrency = MutableLiveData<String>()
     val detailsLanguage = MutableLiveData<String>()
     val detailsFlag = MutableLiveData<String>()
-    val detailsLat = MutableLiveData<String>()
-    val detailsLng = MutableLiveData<String>()
+    val detailsLat = MutableLiveData<LatLng>()
+    val detailsLng = MutableLiveData<LatLng>()
 
 
     suspend fun getCountryDetails(alpha2Code: String): LiveData<List<Country>> {

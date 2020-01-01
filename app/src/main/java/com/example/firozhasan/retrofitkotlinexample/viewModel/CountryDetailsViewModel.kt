@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.firozhasan.retrofitkotlinexample.model.repos.CountryDetailsRepository
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import com.example.firozhasan.retrofitkotlinexample.util.lazyDeferred
+import com.google.android.gms.maps.model.LatLng
 
 class CountryDetailsViewModel(private val repository : CountryDetailsRepository) : ViewModel() {
     var alpha2Code: String? = null
@@ -35,6 +36,11 @@ class CountryDetailsViewModel(private val repository : CountryDetailsRepository)
 
 val flag: LiveData<String>
         get() = repository.detailsFlag
+
+    val lat: LiveData<LatLng>
+        get() = repository.detailsLat
+    val lng: LiveData<LatLng>
+        get() = repository.detailsLng
 
 
 
