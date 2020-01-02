@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.firozhasan.retrofitkotlinexample.R
 import com.example.firozhasan.retrofitkotlinexample.databinding.CountryDetailFragBinding
@@ -33,8 +32,9 @@ class CountriesDetailsFrag: Fragment(), KodeinAware, OnMapReadyCallback {
     override val kodein by kodein()
     private val factory: CountryDetailsViewModelFactory by instance()
     var alphaValue = "empty"
-    //var latLng = LatLng(viewModel.lat,viewModel.lng)
-    globalLatLng  = latLng
+    var latLng = LatLng(33.0, 65.0)
+            //LatLng(viewModel.lat,viewModel.lng)
+    //globalLatLng = latLng
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
          alphaValue = arguments!!.getString("alpha")
         Log.d("alhabibi", "yaalpha = $alphaValue")
@@ -44,7 +44,10 @@ class CountriesDetailsFrag: Fragment(), KodeinAware, OnMapReadyCallback {
                 R.layout.country_detail_frag, container, false).apply {
             this.lifecycleOwner = activity
             this.viewmodel = viewModel
+            bindUI()
+
         }
+
         //Toast.makeText(activity,"sfsdfsf",Toast.LENGTH_LONG).show()
         return binding.root
        // return inflater.inflate(R.layout.fragment_search_frag, container, false)
@@ -54,26 +57,41 @@ class CountriesDetailsFrag: Fragment(), KodeinAware, OnMapReadyCallback {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         //viewModel = ViewModelProviders.of(this, factory).get(CountryDetailsViewModel::class.java)
-        bindUI()
+
+
+
+
     }
 
     private fun bindUI() = Coroutines.main {
         //progressBar.show()
         viewModel.alpha2CountryDetails(alphaValue)
+
+        prepareMap()
+
+
     }
 
     fun prepareMap() {
-        mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment!!.getMapAsync(this)
+        //mapFragment = support.findFragmentById(R.id.map) as SupportMapFragment
+       // mapFragment!!.getMapAsync(this)
+
+        if (activity != null) {
+             mapFragment = activity!!.supportFragmentManager
+                    .findFragmentById(R.id.map) as SupportMapFragment?
+            mapFragment?.getMapAsync(this)
+
+        }
     }
 
     override fun onMapReady(p0: GoogleMap?) {
-        placeMarker(p0!!,globalLatLng!!)
+        Log.d("alhabibi", "yaalpha = $latLng")
+        placeMarker(p0!!,latLng!!)
     }
 
     // place marker on the country geo graphic location
     fun placeMarker(googleMap: GoogleMap, latLng: LatLng) {
+        Log.d("alhabibi", "yaalpha = $latLng")
         val markerOptions = MarkerOptions()
         markerOptions.position(latLng)
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,4f))

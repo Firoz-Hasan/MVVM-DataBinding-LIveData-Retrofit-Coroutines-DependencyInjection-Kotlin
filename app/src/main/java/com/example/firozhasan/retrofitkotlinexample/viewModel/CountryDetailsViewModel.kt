@@ -3,6 +3,7 @@ package com.example.firozhasan.retrofitkotlinexample.viewModel
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.firozhasan.retrofitkotlinexample.model.repos.CountryDetailsRepository
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
@@ -37,9 +38,9 @@ class CountryDetailsViewModel(private val repository : CountryDetailsRepository)
 val flag: LiveData<String>
         get() = repository.detailsFlag
 
-    val lat: LiveData<LatLng>
+    val lat: MutableLiveData<Double>
         get() = repository.detailsLat
-    val lng: LiveData<LatLng>
+    val lng: MutableLiveData<Double>
         get() = repository.detailsLng
 
 
