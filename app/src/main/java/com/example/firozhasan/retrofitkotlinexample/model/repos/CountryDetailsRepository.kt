@@ -25,6 +25,8 @@ class CountryDetailsRepository(private val countriesAPI: CountriesAPI) : SafeApi
     val detailsFlag = MutableLiveData<String>()
     val detailsLat = MutableLiveData<Double>()
     val detailsLng = MutableLiveData<Double>()
+    val detailsLatLng = MutableLiveData<LatLng>()
+
 
 
     suspend fun getCountryDetails(alpha2Code: String): LiveData<List<Country>> {
@@ -54,6 +56,9 @@ class CountryDetailsRepository(private val countriesAPI: CountriesAPI) : SafeApi
             detailsLanguage.postValue(response.languages!![0]?.name)
             detailsLat.postValue(response.latlng?.get(0))
             detailsLng.postValue(response.latlng?.get(1))
+
+            detailsLatLng.postValue(LatLng(33.0, 65.0))
+            //detailsLatLng.postValue( 59.0, 26.0)
             Log.d("hellohello", "fetchCountryDetails fetch try+${response.flag} " +
                     "anf ${response.latlng?.get(0).toString()}")
             //findCountryFullInfo.postValue(response)

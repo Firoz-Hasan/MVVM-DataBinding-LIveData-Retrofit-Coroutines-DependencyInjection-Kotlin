@@ -44,7 +44,7 @@ class CountriesDetailsFrag: Fragment(), KodeinAware, OnMapReadyCallback {
                 R.layout.country_detail_frag, container, false).apply {
             this.lifecycleOwner = activity
             this.viewmodel = viewModel
-            bindUI()
+            //bindUI()
 
         }
 
