@@ -255,7 +255,7 @@
                             android:name="com.google.android.gms.maps.MapFragment"
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
-
+                            app:liteMode="true"
                             app:initMap="@{viewmodel.mMapLatLng}" />
 
                 </androidx.cardview.widget.CardView>

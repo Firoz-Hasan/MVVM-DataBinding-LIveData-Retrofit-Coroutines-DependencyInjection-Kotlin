@@ -19,8 +19,10 @@ fun initMap(mapView: MapView?, latLng: LatLng?) {
        Log.d("ubububua", "asche")
 
             val markerOptions = MarkerOptions()
-            markerOptions.position(LatLng(33.0, 65.0))
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(33.0, 65.0),4f))
+            markerOptions.position(LatLng(60.116667,
+                    19.9))
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(60.116667,
+                    19.9),4f))
             googleMap.addMarker(markerOptions)
         })
     }

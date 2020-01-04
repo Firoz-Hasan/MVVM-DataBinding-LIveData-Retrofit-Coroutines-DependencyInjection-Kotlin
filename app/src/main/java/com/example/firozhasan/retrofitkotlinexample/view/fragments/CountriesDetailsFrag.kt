@@ -24,10 +24,7 @@ import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
 
 
-class CountriesDetailsFrag: Fragment(), KodeinAware, OnMapReadyCallback {
-    var mapFragment: SupportMapFragment? = null
-    var globalLatLng: LatLng? = null
-
+class CountriesDetailsFrag: Fragment(), KodeinAware {
     private lateinit var viewModel: CountryDetailsViewModel
     override val kodein by kodein()
     private val factory: CountryDetailsViewModelFactory by instance()
@@ -44,7 +41,7 @@ class CountriesDetailsFrag: Fragment(), KodeinAware, OnMapReadyCallback {
                 R.layout.country_detail_frag, container, false).apply {
             this.lifecycleOwner = activity
             this.viewmodel = viewModel
-            //bindUI()
+            bindUI()
 
         }
 
@@ -67,34 +64,6 @@ class CountriesDetailsFrag: Fragment(), KodeinAware, OnMapReadyCallback {
         //progressBar.show()
         viewModel.alpha2CountryDetails(alphaValue)
 
-        prepareMap()
 
-
-    }
-
-    fun prepareMap() {
-        //mapFragment = support.findFragmentById(R.id.map) as SupportMapFragment
-       // mapFragment!!.getMapAsync(this)
-
-        if (activity != null) {
-             mapFragment = activity!!.supportFragmentManager
-                    .findFragmentById(R.id.map) as SupportMapFragment?
-            mapFragment?.getMapAsync(this)
-
-        }
-    }
-
-    override fun onMapReady(p0: GoogleMap?) {
-        Log.d("alhabibi", "yaalpha = $latLng")
-        placeMarker(p0!!,latLng!!)
-    }
-
-    // place marker on the country geo graphic location
-    fun placeMarker(googleMap: GoogleMap, latLng: LatLng) {
-        Log.d("alhabibi", "yaalpha = $latLng")
-        val markerOptions = MarkerOptions()
-        markerOptions.position(latLng)
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,4f))
-        googleMap.addMarker(markerOptions)
     }
 }
