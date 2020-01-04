@@ -44,8 +44,10 @@ val flag: LiveData<String>
     val lng: MutableLiveData<Double>
         get() = repository.detailsLng
 
-    val mMapLatLng: MutableLiveData<LatLng> get() = repository.detailsLatLng
+   // val mMapLatLng: MutableLiveData<LatLng> get() = repository.detailsLatLng
+   var mMapLatLng: MutableLiveData<LatLng> = repository.detailsLatLng
 
+    //ObservableField<LatLng?>()
     suspend fun alpha2CountryDetails(alpha : String) {
         Coroutines.main {
             Log.d("hellohello", "alpha2CountryDetails = ${alpha} ")

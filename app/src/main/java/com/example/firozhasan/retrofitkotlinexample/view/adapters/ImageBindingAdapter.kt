@@ -22,13 +22,3 @@ fun loadImage(view: ImageView, url: String) {
     GlideToVectorYou.justLoadImage(view.context as Activity?, Uri.parse(url), view)
 
 }
-@BindingAdapter("initMap")
-fun initMap(mapView: MapView?, latLng: LatLng?) {
-    if (mapView != null) {
-        mapView.onCreate(Bundle())
-        mapView.getMapAsync(OnMapReadyCallback { googleMap ->
-            // Add a marker
-            googleMap.addMarker(MarkerOptions().position(latLng!!).title("Marker in India"))
-        })
-    }
-}
