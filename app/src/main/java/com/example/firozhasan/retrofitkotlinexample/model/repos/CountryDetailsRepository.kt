@@ -57,10 +57,11 @@ class CountryDetailsRepository(private val countriesAPI: CountriesAPI) : SafeApi
             detailsLat.postValue(response.latlng?.get(0))
             detailsLng.postValue(response.latlng?.get(1))
 
-            detailsLatLng.postValue(LatLng(33.0, 65.0))
+            detailsLatLng.postValue(LatLng(response.latlng?.get(0)!!, response.latlng?.get(1)!!))
             //detailsLatLng.postValue( 59.0, 26.0)
             Log.d("hellohello", "fetchCountryDetails fetch try+${response.flag} " +
-                    "anf ${response.latlng?.get(0).toString()}")
+                    "anf ${response.latlng?.get(0).toString()} " +
+                    "and ${detailsLat?.toString()}")
             //findCountryFullInfo.postValue(response)
             //findCountryName.postValue(response[0].name)
 

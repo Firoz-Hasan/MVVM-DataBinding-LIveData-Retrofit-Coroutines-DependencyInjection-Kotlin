@@ -45,7 +45,11 @@ val flag: LiveData<String>
         get() = repository.detailsLng
 
    // val mMapLatLng: MutableLiveData<LatLng> get() = repository.detailsLatLng
-   var mMapLatLng: MutableLiveData<LatLng> = repository.detailsLatLng
+   var mMapLatLng=
+           //LatLng(60.116667, 19.9)
+           repository.detailsLatLng
+
+
 
     //ObservableField<LatLng?>()
     suspend fun alpha2CountryDetails(alpha : String) {

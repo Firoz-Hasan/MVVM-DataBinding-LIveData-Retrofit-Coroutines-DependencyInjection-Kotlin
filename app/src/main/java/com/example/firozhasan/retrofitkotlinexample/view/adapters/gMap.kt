@@ -16,14 +16,13 @@ fun initMap(mapView: MapView?, latLng: LatLng?) {
         mapView.getMapAsync(OnMapReadyCallback { googleMap ->
             // Add a marker
           //  googleMap.addMarker(MarkerOptions().position(latLng!!).title("Marker in India"))
-       Log.d("ubububua", "asche")
+          //latLng =   LatLng(60.116667, 19.9)
+       Log.d("ubububua", "asche = $latLng")
 
             val markerOptions = MarkerOptions()
-            markerOptions.position(LatLng(60.116667,
-                    19.9))
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(60.116667,
-                    19.9),4f))
-            googleMap.addMarker(markerOptions)
+           // markerOptions.position(LatLng(60.116667, 19.9))
+          //  googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(60.116667, 19.9),4f))
+          //  googleMap.addMarker(markerOptions)
         })
     }
 }
