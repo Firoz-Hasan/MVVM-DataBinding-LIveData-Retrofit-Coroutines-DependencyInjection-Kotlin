@@ -17,12 +17,20 @@ fun initMap(mapView: MapView?, latLng: LatLng?) {
             // Add a marker
           //  googleMap.addMarker(MarkerOptions().position(latLng!!).title("Marker in India"))
           //latLng =   LatLng(60.116667, 19.9)
-       Log.d("ubububua", "asche = $latLng")
+       Log.d("ubububua", "asche1 = ${latLng?.latitude} and ${latLng?.longitude}")
 
             val markerOptions = MarkerOptions()
-           // markerOptions.position(LatLng(60.116667, 19.9))
-          //  googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(60.116667, 19.9),4f))
-          //  googleMap.addMarker(markerOptions)
+
+            if (latLng?.latitude != null) {
+                markerOptions.position(LatLng(latLng?.latitude!!, latLng?.longitude!!))
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(latLng?.latitude!!, latLng?.longitude!!), 4f))
+                googleMap.addMarker(markerOptions)
+            }
+            else {
+                /*markerOptions.position(LatLng(52.4912, -1.9348))
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(52.4912, -1.9348), 4f))
+                googleMap.addMarker(markerOptions)*/
+            }
         })
     }
 }
