@@ -1,6 +1,8 @@
 package com.example.firozhasan.retrofitkotlinexample.view.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -84,14 +86,14 @@ class MainActivity : AppCompatActivity(), MainListener {
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    private fun addFragment1(fragment: Fragment, fragment2: Fragment, fragment3: Fragment) {
+    private fun addFragment3(fragment: Fragment, fragment2: Fragment, fragment3: Fragment) {
 
             supportFragmentManager
                     .beginTransaction()
                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                     .hide(fragment2)
                     .hide(fragment3)
-                    .add(R.id.content, fragment, fragment.javaClass.simpleName)
+                   // .add(R.id.content, fragment, fragment.javaClass.simpleName)
                     .show(fragment)
                     .addToBackStack(null)
                     .commit()
@@ -101,6 +103,7 @@ class MainActivity : AppCompatActivity(), MainListener {
 
     private fun addFragment(fragment: Fragment, fragment2: Fragment, fragment3: Fragment) {
         if (fragment.isAdded) {
+            Log.d("which", "1")
             supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
@@ -110,6 +113,7 @@ class MainActivity : AppCompatActivity(), MainListener {
 
                 .commit()
         } else {
+            Log.d("which", "2")
             supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
@@ -117,6 +121,8 @@ class MainActivity : AppCompatActivity(), MainListener {
                     .hide(fragment3)
                 .add(R.id.content, fragment, fragment.javaClass.simpleName)
                 .show(fragment)
+
+
                 .commit()
         }
 
@@ -126,7 +132,7 @@ class MainActivity : AppCompatActivity(), MainListener {
         val args = Bundle()
         args.putString("alpha", alpha2Code)
         countriesDetails?.setArguments(args)
-        addFragment1(countriesDetails!!, allCountriesFrag!!, searchFrag!!)
+        addFragment(countriesDetails!!, allCountriesFrag!!, searchFrag!!)
 
         toast(alpha2Code)
         /*   val fragment: Fragment = CountriesDetailsFrag()
@@ -139,6 +145,12 @@ class MainActivity : AppCompatActivity(), MainListener {
                    .add(R.id.content, fragment, fragment.javaClass.simpleName)
                    .show(fragment)
                    .commit()*/
+    }
+
+    override fun gotoDetailsActivity(alpha2Code: String) {
+        val intent = Intent(this, CountryDetails::class.java)
+        intent.putExtra("alpha", alpha2Code)
+        startActivity(intent)
     }
 
 

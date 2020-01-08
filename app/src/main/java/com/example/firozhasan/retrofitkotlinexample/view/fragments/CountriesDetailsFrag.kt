@@ -34,7 +34,8 @@ class CountriesDetailsFrag: Fragment(), KodeinAware {
             //LatLng(viewModel.lat,viewModel.lng)
     //globalLatLng = latLng
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-         alphaValue = arguments!!.getString("alpha")
+         //alphaValue = arguments!!.getString("alpha")
+                alphaValue = "AR"
         Log.d("alhabibi", "yaalpha = $alphaValue")
                 Log.d("fraglifecycle", "oncreateview")
         viewModel = ViewModelProviders.of(this, factory).get(CountryDetailsViewModel::class.java)
