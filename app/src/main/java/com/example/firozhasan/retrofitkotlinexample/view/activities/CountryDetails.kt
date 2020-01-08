@@ -5,12 +5,25 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.firozhasan.retrofitkotlinexample.R
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.CountriesDetailsFrag
 
+
 class CountryDetails : AppCompatActivity() {
     var countriesDetails: CountriesDetailsFrag? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_country__details)
         countriesDetails = CountriesDetailsFrag()
+
+        val value = intent.getStringExtra("alpha")
+        val bundle = Bundle()
+        val myMessage = "Stackoverflow is cool!"
+        bundle.putString("message", value)
+        //val fragInfo = FragmentClass()
+        countriesDetails!!.setArguments(bundle)
+        //transaction.replace(R.id.fragment_single, fragInfo)
+        //transaction.commit()
+
+
+
         supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
