@@ -117,6 +117,9 @@ Object ---> Json OR Json ---> object(POJO) so thats why we need Gson.
    Viewmodel survives during configuration changes &
    livedata helps to update UI(without interface) as it can be observed
    
+   LiveData is basically a data holder and it is used to observe the changes of a particular view and then update the corresponding change. What is the difference between livedata and mutablelivedata? -> LiveData is immutable while MutableLiveData is mutable
+   
+   
    ViewModel : holding and preparing data for the UI / ViewModel stores UI-related data that isn't destroyed on app rotations.
    SO activity / frag connects this
    viewmodel and gets all necessary data fm there and reporting user interaciton
@@ -125,7 +128,33 @@ Object ---> Json OR Json ---> object(POJO) so thats why we need Gson.
    SO viewmodel works as a gateway for the UI controller (activity/frag)
    and rest of the app.
 
-       
+
+Dependency Injection
+we should not create instance of other CLASS(B) inside a CLASS(A) bec it is making CLASS(A) dependant on CLASS(B). it makes our code tightly coupled.
+
+For example 
+we have class driver and class vehicle.
+class driver is dependent on class vehicle.
+      
+ Coroutines 
+new way of writing asynchrounous code
+light weight and much more eficient thread
+background thread
+threading in android
+couritines is like jobs, couritines 1, couritines 2, couritines 3 all of them can be under One thread.
+coroutines scope like group jobs / coroutines together into similar category and take action many of them at once.
+coroutines suspend marks that this fun will be performed asynchrously / can execute long running operation and wait for it without blocking
+suspend func is the center of everything in coroutines, it performs asynctask operation, can be paused and resuming at later time, can execute long running operation and wait for it without blocking.
+coroutines scope / another suspend func
+async
+When you execute something synchronously, you wait for it to finish before moving on to another task. When you execute something asynchronously, you can move on to another task before it finishes.
+
+lamda = function with no name
+
+notification compat builder
+
+annotation : 
+An annotation is just a way to mark a class, field, another annotation, method etc. Why? It just tells that the marked component has a special attribute. But how do you handle it?
        
 </ol>
 
