@@ -58,6 +58,14 @@ val flag: LiveData<String>
         }
     }
 
+
+    suspend fun onClickFriend(alpha : String) {
+        Coroutines.main {
+            Log.d("hellohello", "alpha2CountryDetails = ${alpha} ")
+            //repository.getCountryDetails(alpha)
+        }
+    }
+
     val countryDetails by lazyDeferred {
         Log.d("hellohello","view model e asche+ ")
         repository.getCountryDetails("AR")

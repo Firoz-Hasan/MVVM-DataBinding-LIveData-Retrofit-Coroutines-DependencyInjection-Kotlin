@@ -31,7 +31,8 @@ class CountriesDetailsFrag: Fragment(), KodeinAware {
                 val bundle = this.arguments
                 val myValue = bundle!!.getString("message")
         Log.d("alhabibi", "yaalpha = $myValue")
-                alphaValue = myValue
+                alphaValue = "AR"
+                        //myValue
                 Log.d("fraglifecycle", "oncreateview")
         viewModel = ViewModelProviders.of(this, factory).get(CountryDetailsViewModel::class.java)
         val binding = DataBindingUtil.inflate<CountryDetailFragBinding>(inflater,

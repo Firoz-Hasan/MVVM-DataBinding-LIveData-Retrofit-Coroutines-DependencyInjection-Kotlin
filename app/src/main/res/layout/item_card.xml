@@ -10,6 +10,12 @@
         <variable
             name="country"
             type="com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country" />
+
+        <variable
+                name="vm"
+                type="com.example.firozhasan.retrofitkotlinexample.viewModel.CountryDetailsViewModel" />
+
+
     </data>
 
 
@@ -19,12 +25,16 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:elevation="5dp"
-        card_view:cardCornerRadius="5dp">
+        card_view:cardCornerRadius="5dp"
+
+            >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="15dp">
+            android:layout_margin="15dp"
+                android:onClick="@{() -> vm.onClickFriend(country.alpha2Code)"
+                >
 
 
             <ImageView
