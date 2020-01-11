@@ -25,9 +25,6 @@ class CountriesDetailsFrag: Fragment(), KodeinAware {
     override val kodein by kodein()
     private val factory: CountryDetailsViewModelFactory by instance()
     var alphaValue = "empty"
-    var latLng = LatLng(33.0, 65.0)
-            //LatLng(viewModel.lat,viewModel.lng)
-    //globalLatLng = latLng
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
          //alphaValue = arguments!!.getString("alpha")
 

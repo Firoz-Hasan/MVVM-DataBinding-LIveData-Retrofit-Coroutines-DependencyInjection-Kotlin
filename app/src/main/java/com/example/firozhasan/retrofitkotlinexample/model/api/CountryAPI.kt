@@ -1,6 +1,6 @@
 package com.example.firozhasan.retrofitkotlinexample.model.api
 
-import com.example.firozhasan.retrofitkotlinexample.common.Constant
+import com.example.firozhasan.retrofitkotlinexample.listener.Constant
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

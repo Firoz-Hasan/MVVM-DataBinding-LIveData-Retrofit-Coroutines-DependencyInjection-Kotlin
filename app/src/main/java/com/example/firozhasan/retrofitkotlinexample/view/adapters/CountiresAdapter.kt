@@ -5,16 +5,12 @@ import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firozhasan.retrofitkotlinexample.R
-import com.example.firozhasan.retrofitkotlinexample.common.MainListener
+import com.example.firozhasan.retrofitkotlinexample.listener.MainListener
 import com.example.firozhasan.retrofitkotlinexample.databinding.ItemCardBinding
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
-import com.example.firozhasan.retrofitkotlinexample.view.fragments.AllCountriesFrag
-import com.example.firozhasan.retrofitkotlinexample.view.fragments.CountriesDetailsFrag
 
 
 class CountiresAdapter(private val context: Context, val countrylist: List<Country>?) : RecyclerView.Adapter<CountiresAdapter.CountryViewHolder>() {

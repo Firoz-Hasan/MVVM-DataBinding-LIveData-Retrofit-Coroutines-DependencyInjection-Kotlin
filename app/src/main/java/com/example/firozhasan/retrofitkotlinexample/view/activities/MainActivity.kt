@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.firozhasan.retrofitkotlinexample.R
-import com.example.firozhasan.retrofitkotlinexample.common.MainListener
+import com.example.firozhasan.retrofitkotlinexample.listener.MainListener
 import com.example.firozhasan.retrofitkotlinexample.util.toast
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.AllCountriesFrag
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.CountriesDetailsFrag

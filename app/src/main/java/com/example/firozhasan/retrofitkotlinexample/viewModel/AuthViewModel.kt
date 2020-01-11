@@ -3,7 +3,7 @@ package com.example.firozhasan.retrofitkotlinexample.viewModel
 import android.content.Intent
 import androidx.lifecycle.ViewModel
 import android.view.View
-import com.example.firozhasan.retrofitkotlinexample.common.AuthListener
+import com.example.firozhasan.retrofitkotlinexample.listener.AuthListener
 import com.example.firozhasan.retrofitkotlinexample.model.repos.LoginRepository
 import com.example.firozhasan.retrofitkotlinexample.util.ApiException
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
