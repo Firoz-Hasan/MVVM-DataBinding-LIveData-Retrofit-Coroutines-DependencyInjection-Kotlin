@@ -1,229 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
 
         >
+
     <data>
+
         <variable
                 name="viewmodel"
-                type="com.example.firozhasan.retrofitkotlinexample.viewModel.CountryDetailsViewModel"
-                />
+                type="com.example.firozhasan.retrofitkotlinexample.viewModel.CountryDetailsViewModel" />
 
-        <variable
-                name="country"
-                type="com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country"
-                />
 
     </data>
-<ScrollView
+
+    <ScrollView
 
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   android:orientation="vertical"
-    android:fillViewport="true">
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:fillViewport="true"
+            android:orientation="vertical">
 
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margin_8dp"
-                android:layout_marginLeft="@dimen/margin_8dp"
-                android:layout_marginRight="@dimen/margin_8dp"
-                android:layout_marginBottom="@dimen/margin_8dp"
                 android:orientation="vertical">
 
-                <androidx.cardview.widget.CardView
+            <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin_8dp"
                     android:layout_marginTop="@dimen/margin_8dp"
-                    android:layout_marginBottom="@dimen/margin_8dp">
+                    android:layout_marginRight="@dimen/margin_8dp"
+                    android:layout_marginBottom="@dimen/margin_8dp"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="@dimen/margin_8dp"
-                        android:layout_marginRight="@dimen/margin_8dp"
                         android:layout_marginTop="@dimen/margin_8dp"
                         android:layout_marginBottom="@dimen/margin_8dp">
 
-                        <LinearLayout
+                    <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:layout_marginLeft="@dimen/margin_8dp"
+                            android:layout_marginTop="@dimen/margin_8dp"
+                            android:layout_marginRight="@dimen/margin_8dp"
+                            android:layout_marginBottom="@dimen/margin_8dp"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                             <ImageView
-                                android:id="@+id/flag_image_view_detail"
-                                android:layout_width="70dp"
-                                android:layout_height="40dp"
-                                android:scaleType="fitXY"
+                                    android:id="@+id/flag_image_view_detail"
+                                    android:layout_width="65dp"
+                                    android:layout_height="40dp"
+                                    app:image="@{viewmodel.flag != null ? viewmodel.flag : `https://restcountries.eu/data/and.svg`}"
+
+
 
                                     />
 
                             <TextView
-                                android:id="@+id/name_text_view_detail"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@{viewmodel.country}"
-                                android:layout_marginLeft="@dimen/margin_8dp"
-                                android:layout_gravity="center"
-                                style="@style/DefaultTextView"/>
+                                    android:id="@+id/name_text_view_detail"
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/margin_8dp"
+                                    android:text="@{viewmodel.country != null ? viewmodel.country : `Loading`}"
+
+                                    />
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Capital:"
-                                style="@style/DefaultTextView"/>
+                                android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/capital_text_view_detail"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@{viewmodel.capital}"
-                                android:layout_marginLeft="@dimen/margin_8dp"
-                                style="@style/DefaultTextView"/>
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Capital:" />
+
+                            <TextView
+                                    android:id="@+id/capital_text_view_detail"
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_8dp"
+
+                                    android:text="@{viewmodel.capital != null ? viewmodel.capital : `Loading`}"
+
+                                    />
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Area:"
-                                style="@style/DefaultTextView"/>
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Area:" />
 
                             <TextView
-                                android:id="@+id/area_text_view_detail"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@{viewmodel.area}"
-                                android:textColor="@color/black"
-                                android:layout_marginLeft="@dimen/margin_8dp"
-                                style="@style/DefaultTextView"/>
+                                    android:id="@+id/area_text_view_detail"
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_8dp"
+
+                                    android:text="@{viewmodel.area != null ? viewmodel.area : `Loading`}"
+
+                                    android:textColor="@color/black" />
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Population:"
-                                style="@style/DefaultTextView"/>
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Population:" />
 
                             <TextView
-                                android:id="@+id/population_text_view_detail"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@{viewmodel.population}"
-                                style="@style/DefaultTextView"
-                                android:layout_marginLeft="@dimen/margin_8dp"/>
+                                    android:id="@+id/population_text_view_detail"
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_8dp"
+                                    android:text="@{viewmodel.population != null ? viewmodel.population : `Loading`}"
+
+                                     />
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Region:"
-                                style="@style/DefaultTextView"/>
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Region:" />
 
-                             <TextView
-                                android:id="@+id/region_text_view_detail"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@{viewmodel.region}"
-                                style="@style/DefaultTextView"
-                                android:layout_marginLeft="@dimen/margin_8dp"/>
+                            <TextView
+                                    android:id="@+id/region_text_view_detail"
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_8dp"
+                                    android:text="@{viewmodel.region != null ? viewmodel.region : `Loading`}"
+
+                                     />
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Time Zone:"
-                                style="@style/DefaultTextView"/>
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Time Zone:" />
 
                             <TextView
-                                android:id="@+id/time_zone_text_view_detail"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@{viewmodel.timezone}"
-                                style="@style/DefaultTextView"
-                                android:layout_marginLeft="@dimen/margin_8dp"/>
+                                    android:id="@+id/time_zone_text_view_detail"
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_8dp"
+                                    android:text="@{viewmodel.timezone != null ? viewmodel.timezone : `Loading`}"
+
+                                    />
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Language:"
-                                style="@style/DefaultTextView"/>
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Language:" />
 
                             <TextView
-                                android:id="@+id/language_text_view_detail"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@{viewmodel.language}"
-                                android:layout_marginLeft="@dimen/margin_8dp"
-                                style="@style/DefaultTextView"/>
+                                    android:id="@+id/language_text_view_detail"
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_8dp"
+                                    android:text="@{viewmodel.language != null ? viewmodel.language : `Loading`}"
+
+                                    />
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Currency:"
-                                style="@style/DefaultTextView"/>
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Currency:" />
 
                             <TextView
-                                android:id="@+id/currency_text_view_detail"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@{viewmodel.currency}"
-                                style="@style/DefaultTextView"
-                                android:layout_marginLeft="@dimen/margin_8dp"/>
+                                    android:id="@+id/currency_text_view_detail"
+                                    style="@style/DefaultTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_8dp"
+                                    android:text="@{viewmodel.currency != null ? viewmodel.currency : `Loading`}"
+
+                                     />
 
                         </LinearLayout>
 
@@ -232,9 +248,20 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
 
+                        >
+
+                    <com.google.android.gms.maps.MapView
+                            android:id="@+id/map"
+                            android:name="com.google.android.gms.maps.MapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            app:liteMode="true"
+                          app:initMap="@{viewmodel.mMapLatLng}"
+
+                            />
 
                 </androidx.cardview.widget.CardView>
 
@@ -242,5 +269,5 @@
 
         </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
 </layout>

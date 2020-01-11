@@ -2,9 +2,14 @@ package com.example.firozhasan.retrofitkotlinexample.view.adapters
 
 import android.app.Activity
 import android.net.Uri
+import android.os.Bundle
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
 
 @BindingAdapter("image")

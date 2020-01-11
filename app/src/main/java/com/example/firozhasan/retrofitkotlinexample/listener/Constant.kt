@@ -1,4 +1,4 @@
-package com.example.firozhasan.retrofitkotlinexample.common
+package com.example.firozhasan.retrofitkotlinexample.listener
 
 interface Constant {
     companion object {

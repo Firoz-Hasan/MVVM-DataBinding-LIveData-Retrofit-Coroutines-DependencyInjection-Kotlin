@@ -1,6 +1,8 @@
 package com.example.firozhasan.retrofitkotlinexample.view.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -8,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.firozhasan.retrofitkotlinexample.R
-import com.example.firozhasan.retrofitkotlinexample.common.MainListener
+import com.example.firozhasan.retrofitkotlinexample.listener.MainListener
 import com.example.firozhasan.retrofitkotlinexample.util.toast
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.AllCountriesFrag
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.CountriesDetailsFrag
@@ -31,12 +33,12 @@ class MainActivity : AppCompatActivity(), MainListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 when (item.itemId) {
                     R.id.home -> {
-                        addFragment(allCountriesFrag!!, searchFrag!!)
+                        addFragment(allCountriesFrag!!, searchFrag!!, countriesDetails!!)
                         toolbar!!.visibility = View.VISIBLE
                         return true
                     }
                     R.id.find -> {
-                        addFragment(searchFrag!!, allCountriesFrag!!)
+                        addFragment(searchFrag!!, allCountriesFrag!!, countriesDetails!!)
                         toolbar!!.visibility = View.INVISIBLE
                         return true
                     }
@@ -51,7 +53,7 @@ class MainActivity : AppCompatActivity(), MainListener {
         setContentView(R.layout.activity_main)
         prepareAllView()
 // add kountry list fragment as default fragment
-        addFragment(allCountriesFrag!!, searchFrag!!)
+        addFragment(allCountriesFrag!!, searchFrag!! , countriesDetails!!)
 
 
 
@@ -84,13 +86,14 @@ class MainActivity : AppCompatActivity(), MainListener {
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    private fun addFragment1(fragment: Fragment, fragment2: Fragment) {
+    private fun addFragment3(fragment: Fragment, fragment2: Fragment, fragment3: Fragment) {
 
             supportFragmentManager
                     .beginTransaction()
                     .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                     .hide(fragment2)
-                    .add(R.id.content, fragment, fragment.javaClass.simpleName)
+                    .hide(fragment3)
+                   // .add(R.id.content, fragment, fragment.javaClass.simpleName)
                     .show(fragment)
                     .addToBackStack(null)
                     .commit()
@@ -98,21 +101,28 @@ class MainActivity : AppCompatActivity(), MainListener {
     }
 
 
-    private fun addFragment(fragment: Fragment, fragment2: Fragment) {
+    private fun addFragment(fragment: Fragment, fragment2: Fragment, fragment3: Fragment) {
         if (fragment.isAdded) {
+            Log.d("which", "1")
             supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                 .hide(fragment2)
+                    .hide(fragment3)
                 .show(fragment)
+
                 .commit()
         } else {
+            Log.d("which", "2")
             supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
                 .hide(fragment2)
+                    .hide(fragment3)
                 .add(R.id.content, fragment, fragment.javaClass.simpleName)
                 .show(fragment)
+
+
                 .commit()
         }
 
@@ -122,7 +132,7 @@ class MainActivity : AppCompatActivity(), MainListener {
         val args = Bundle()
         args.putString("alpha", alpha2Code)
         countriesDetails?.setArguments(args)
-        addFragment1(countriesDetails!!, allCountriesFrag!!)
+        addFragment(countriesDetails!!, allCountriesFrag!!, searchFrag!!)
 
         toast(alpha2Code)
         /*   val fragment: Fragment = CountriesDetailsFrag()
@@ -135,6 +145,12 @@ class MainActivity : AppCompatActivity(), MainListener {
                    .add(R.id.content, fragment, fragment.javaClass.simpleName)
                    .show(fragment)
                    .commit()*/
+    }
+
+    override fun gotoDetailsActivity(alpha2Code: String) {
+        val intent = Intent(this, CountryDetails::class.java)
+        intent.putExtra("alpha", alpha2Code)
+        startActivity(intent)
     }
 
 
