@@ -88,14 +88,14 @@ Object ---> Json OR Json ---> object(POJO) so thats why we need Gson.
   </li>
   </ul>
   
- # ----------------HOW MVVM WORKS---------------
+ <b> ----------------HOW MVVM WORKS---------------
 
-# Model 
+<b> Model 
 simple POJO class / data holder class.
-# View 
+<b> View 
 It just contains the UI which means its just act as dumb so Business logic should be part of viewmodel
 
-# VIEWMODEL 
+<b> VIEWMODEL 
 Main functionality of viewmodel IS 
 * it provides the data to UI. * load the data fm network or db SO viewmodel act as communication layer between Network/DB and UI data is preserved on confg changes why? activity / frag fetching data fm viewmodel so if activity is recreated it taking/ fetching data from same viewmodel. LIVEDATA : We used to update THE UI through interface to reduce boiler plate code SO why do we use livedata with viewmodel? Viewmodel survives during configuration changes & livedata helps to update UI(without interface) as it can be observed.
 
@@ -116,16 +116,16 @@ Room(sqlite) / Retrofit(web service)
 
 
 
-# LiveData 
+<b> LiveData </b>
 is basically a data holder and it is used to observe the changes of a particular view and then update the corresponding change. What is the difference between livedata and mutablelivedata? -> LiveData is immutable while MutableLiveData is mutable.
 
 
-# Dependency Injection 
+<b> Dependency Injection </b>
 It is a design pattern. we should not create instance of other CLASS(B) inside a CLASS(A) bec it is making CLASS(A) dependant on CLASS(B). it makes our code tightly coupled. For example we have class driver and class vehicle. class driver is dependent on class vehicle.
 
-# Coroutines 
+<b> Coroutines </b>
 
-# When do you need background thread? 
+<b> When do you need background thread? </b>
 1- Network Request like retrofit becuse you cant block main thread.
 2- Room db/ internal request to db
 
@@ -139,33 +139,34 @@ official website of Kotlin says
 	One can think of a coroutine as a light-weight thread. Like threads, coroutines can run in parallel, wait for each other and communicate. The biggest difference is that coroutines are very cheap, almost free: we can create thousands of them, and pay very little in terms of performance. True threads, on the other hand, are expensive to start and keep around. A thousand threads can be a serious challenge for a modern machine.
 	
 	
-# Coroutines & Thread both do multitasking, so what is the difference?
+<b> Coroutines & Thread both do multitasking, so what is the difference? </b>
 Thread are managed by OS but Coroutines are managed by user.
 
-# coroutines scope 
+<b> coroutines scope </b>
 is a way to organize coroutines into groupings.  Coroutines are like jobs. so coroutinescope / coroutine context is grouping branch of jobs together. or another word coroutinescope  are like group jobs / coroutines together into similar category and take action many of them at once. 
 
-# Thread -> is the place where job gets done
+<b> Thread -> is the place where job gets done
 |___>>> JOB # Coroutines 1  -> job need to be done
 |___>>> JOB # Coroutines 2 
 |___>>> JOB # Coroutines 3
+	</b>
 
-# Suspend function 
+<b> Suspend function </b>
 are center of everything at couritines. It can be started / paused / resumed at later time. so this type of function is the center of everything in coroutines and it can execute long running operation and can complete without blocking. coroutines suspend marks that this fun will be performed asynchrously / can execute long running operation and wait for it without blocking. Suspend function only allowed to be called from coroutinesor another suspend function. 
 
-# Dispatcher 
+<b> Dispatcher </b>
 helps Coroutine to decide in which thread the work has to be done.
 IO-> network / disk
 Default -> cpu intensive work
 Main -> UI thread
 
-# Difference synchronously vs asynchronously 
+<b> Difference synchronously vs asynchronously </b>
 When you execute something synchronously, you wait for it to finish before moving on to another task. When you execute something asynchronously, you can move on to another task before it finishes.
 
-# Lamda 
+<b> Lamda </b>
 is function with no name
 
-# Annotation 
+<b> Annotation </b>
 An annotation is just a way to mark a class, field, another annotation, method etc. Why? It just tells that the marked component has a special attribute. But how do you handle it?
        
 </ol>
