@@ -88,7 +88,7 @@ Object ---> Json OR Json ---> object(POJO) so thats why we need Gson.
   </li>
   </ul>
   
- <b> ----------------HOW MVVM WORKS---------------
+ <b> ----------------HOW MVVM WORKS--------------- </b>
 
 <b> Model 
 simple POJO class / data holder class.
