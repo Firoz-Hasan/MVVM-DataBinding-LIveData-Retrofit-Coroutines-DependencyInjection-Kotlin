@@ -90,12 +90,12 @@ Object ---> Json OR Json ---> object(POJO) so thats why we need Gson.
   
  <b> ----------------HOW MVVM WORKS--------------- </b>
 
-<b> Model 
+<b> Model </b>
 simple POJO class / data holder class.
-<b> View 
+<b> View </b>
 It just contains the UI which means its just act as dumb so Business logic should be part of viewmodel
 
-<b> VIEWMODEL 
+<b> VIEWMODEL </b>
 Main functionality of viewmodel IS 
 * it provides the data to UI. * load the data fm network or db SO viewmodel act as communication layer between Network/DB and UI data is preserved on confg changes why? activity / frag fetching data fm viewmodel so if activity is recreated it taking/ fetching data from same viewmodel. LIVEDATA : We used to update THE UI through interface to reduce boiler plate code SO why do we use livedata with viewmodel? Viewmodel survives during configuration changes & livedata helps to update UI(without interface) as it can be observed.
 
