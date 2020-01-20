@@ -13,8 +13,7 @@ import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 class FindCountryViewModel(private val repository : FindCountryRepository)
     : ViewModel() {
 
-    val countryFullInfo: LiveData<List<Country>>
-        get() = repository.findCountryFullInfo
+    //val countryFullInfo: LiveData<List<Country>> get() = repository.findCountryFullInfo
 
     val country: LiveData<String>
         get() = repository.findCountryName
@@ -24,8 +23,7 @@ class FindCountryViewModel(private val repository : FindCountryRepository)
 
     fun onChangeFindCountryClick(view: View) {
         Log.d("hellohello", "find er view model e asche outside ")
-//why courutines?????????????????????????????????????????????????????????????????????
-        Coroutines.main {
+       Coroutines.io {
             Log.d("hellohello", "find er view model e asche inside ")
             repository.findCountryByCapital(editTextCountryName.value.toString())
         }

@@ -13,17 +13,13 @@ class CountryDetails : AppCompatActivity() {
         setContentView(R.layout.activity_country__details)
         countriesDetails = CountriesDetailsFrag()
 
-        val value = intent.getStringExtra("alpha")
+        val getAlphaCode = intent.getStringExtra("alpha")
         val bundle = Bundle()
-        val myMessage = "Stackoverflow is cool!"
-        bundle.putString("message", value)
+        bundle.putString("message", getAlphaCode)
         //val fragInfo = FragmentClass()
         countriesDetails!!.setArguments(bundle)
         //transaction.replace(R.id.fragment_single, fragInfo)
         //transaction.commit()
-
-
-
         supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)

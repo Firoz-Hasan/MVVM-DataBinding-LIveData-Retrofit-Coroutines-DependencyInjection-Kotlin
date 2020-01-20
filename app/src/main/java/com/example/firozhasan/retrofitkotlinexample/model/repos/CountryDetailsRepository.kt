@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.firozhasan.retrofitkotlinexample.model.api.CountriesAPI
 import com.example.firozhasan.retrofitkotlinexample.model.api.SafeApiRequest
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
+import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -29,12 +30,17 @@ class CountryDetailsRepository(private val countriesAPI: CountriesAPI) : SafeApi
 
 
 
-    suspend fun getCountryDetails(alpha2Code: String): LiveData<List<Country>> {
-        return withContext(Dispatchers.IO) {
+    suspend fun getCountryDetails(alpha2Code: String) {
+        return Coroutines.withContextIO {
+            fetchCountryDetails(alpha2Code)
+            //findCountryFullInfo
+        }
+
+    /*    withContext(Dispatchers.IO) {
             fetchCountryDetails(alpha2Code)
             // db.getQuoteDao().getQuotes()
             findCountryFullInfo
-        }
+        }*/
 
     }
 
