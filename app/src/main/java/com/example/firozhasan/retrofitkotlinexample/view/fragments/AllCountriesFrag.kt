@@ -56,7 +56,7 @@ class AllCountriesFrag : Fragment(), KodeinAware {
     }
 
     private fun initRecyclerView(list: List<Country>?) {
-        adapter = CountiresAdapter(activity!!, list)
+        adapter = CountiresAdapter(activity!!, list )
         recyclerView.adapter = adapter
     }
 

@@ -14,8 +14,7 @@ import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 
 
 class CountiresAdapter(private val context: Context,
-                       val countrylist: List<Country>?,
-                       val clickListener: CountryListener)
+                       val countrylist: List<Country>?)
     : RecyclerView.Adapter<CountiresAdapter.CountryViewHolder>() {
 
    /* override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CountryViewHolder {
@@ -63,11 +62,11 @@ class CountiresAdapter(private val context: Context,
         p0?.bind(country!!)*/
         p0.recyclerviewMovieBinding.country = this.countrylist!![p1]
 
-    /*    p0.recyclerviewMovieBinding.itemCard1?.setOnClickListener {
+        p0.recyclerviewMovieBinding.itemCard1?.setOnClickListener {
             Log.d("value", "${countrylist?.get(p1)?.name}")
             communicator?.gotoDetailsActivity(countrylist?.get(p1)?.alpha2Code!!)
 
-        }*/
+        }
 
 
     }
@@ -86,8 +85,4 @@ class CountiresAdapter(private val context: Context,
         val recyclerviewMovieBinding: ItemCardBinding
     ) : RecyclerView.ViewHolder(recyclerviewMovieBinding.root)
 
-}
-
-class CountryListener(val clickListener : (userId : Country) -> Unit){
-    fun onClick(user: Country) = clickListener(user)
 }
