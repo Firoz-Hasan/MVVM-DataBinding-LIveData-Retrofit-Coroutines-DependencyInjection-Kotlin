@@ -12,7 +12,7 @@ import kotlinx.coroutines.withContext
 class AllCountriesRepository(private val countriesApi: CountriesAPI) : SafeApiRequest(){
 
    // private val quotes = MutableLiveData<List<Quote>>()
-    private val allCountires = MutableLiveData<List<Country>>()
+     val allCountires = MutableLiveData<List<Country>>()
     init {
         allCountires.observeForever {
            // saveQuotes(it)
@@ -26,7 +26,7 @@ class AllCountriesRepository(private val countriesApi: CountriesAPI) : SafeApiRe
     }
 
 
-    suspend fun getALLCounty2(): LiveData<List<Country>> {
+    suspend fun getALLCounty2(): MutableLiveData<List<Country>> {
         return withContext(Dispatchers.IO) {
             fetchAllCountries2()
             // db.getQuoteDao().getQuotes()
@@ -35,19 +35,21 @@ class AllCountriesRepository(private val countriesApi: CountriesAPI) : SafeApiRe
     }
 
 
-    private suspend fun fetchAllCountries2() {
+     suspend fun fetchAllCountries2() : List<Country> {
         //val lastSavedAt = prefs.getLastSavedAt()
+
         Log.d("hellohello","fetchAllCountries2 outside fetch ")
-            try {
+           // try {
                 val response = apiRequest { countriesApi.getAllCountries() }
-                Log.d("hellohello","fetchAllCountries2inside fetch try+${response} ")
-                allCountires.postValue(response)
+                 allCountires.postValue(response)
+                Log.d("hellohello","fetchAllCountries2inside fetch try+${allCountires} ")
 
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Log.d("hellohello","fetchAllCountries2inside fetch catch+${e.toString()} ")
 
-            }
+          //  } catch (e: Exception) {
+            //    e.printStackTrace()
+           //     Log.d("hellohello","fetchAllCountries2inside fetch catch+${e.toString()} ")
 
+         //   }
+return response
     }
 }

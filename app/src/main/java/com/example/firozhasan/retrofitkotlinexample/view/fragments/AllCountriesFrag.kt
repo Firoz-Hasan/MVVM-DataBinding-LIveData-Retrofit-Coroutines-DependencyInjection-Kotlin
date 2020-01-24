@@ -18,6 +18,7 @@ import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import com.example.firozhasan.retrofitkotlinexample.util.hide
 import com.example.firozhasan.retrofitkotlinexample.util.show
+import com.example.firozhasan.retrofitkotlinexample.util.toast
 import com.example.firozhasan.retrofitkotlinexample.view.adapters.CountiresAdapter
 import com.example.firozhasan.retrofitkotlinexample.view.adapters.CountriesAdapter2
 import com.example.firozhasan.retrofitkotlinexample.view.adapters.CountryListener
@@ -49,22 +50,23 @@ class AllCountriesFrag : Fragment(), KodeinAware {
 
         binding.lifecycleOwner = this
 
-        viewModel = ViewModelProviders.of(this).get(AllCountriesViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, factory).get(AllCountriesViewModel::class.java)
 
         binding.allCountiresViewmodel = viewModel
 
-        binding.countriesRV.adapter = CountriesAdapter2(CountryListener {
-               country -> Toast.makeText(context,"${country?.name}", Toast.LENGTH_SHORT).show()
+        binding.countriesRV.adapter = CountriesAdapter2(CountryListener { country ->
+            Toast.makeText(context, "${country?.name}", Toast.LENGTH_SHORT).show()
             //viewModel.displayUserDetails(it)
         })
 
-   /*     viewModel.navigateToUserDetails.observe(this, Observer {
-            it?.let {
-                findNavController().navigate(UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(it))
-                viewModel.displayUserDetailsComplete()
-            }
-        }
-        )*/
+
+        /*     viewModel.navigateToUserDetails.observe(this, Observer {
+                 it?.let {
+                     findNavController().navigate(UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(it))
+                     viewModel.displayUserDetailsComplete()
+                 }
+             }
+             )*/
 
         /*  binding.btn.setOnClickListener {
               view: View? ->  view?.findNavController()?.navigate(R.id.viewPagerFragment)
