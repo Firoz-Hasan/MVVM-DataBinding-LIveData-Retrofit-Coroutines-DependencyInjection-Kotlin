@@ -10,6 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/*
 object Repository
 // object is same as static in java
 {
@@ -17,17 +18,23 @@ object Repository
     private var apiclient: JobServices? = null
     private var loginapiclient: JobServices? = null
 
-    /*this variable are for getting country name by giving capital name*/
+    */
+/*this variable are for getting country name by giving capital name*//*
+
     private val _currentCountryName = MutableLiveData<String>()
     val currentCountryName: LiveData<String>
         get() = _currentCountryName
 
-    /*this variable provides list of countries*/
+    */
+/*this variable provides list of countries*//*
+
     val _countires: MutableLiveData<List<Country>> = MutableLiveData()
     val getAllCountires: LiveData<List<Country>>
         get() = _countires
 
-    /*this variable provides list of countries*/
+    */
+/*this variable provides list of countries*//*
+
     val _authentication = MutableLiveData<String>()
     val getAuthentication: LiveData<String>
         get() = _authentication
@@ -84,4 +91,4 @@ object Repository
             }
         })
     }
-}
+}*/
