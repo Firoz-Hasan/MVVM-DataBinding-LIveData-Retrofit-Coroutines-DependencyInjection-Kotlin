@@ -1,3 +1,4 @@
+/*
 package com.example.firozhasan.retrofitkotlinexample.view.adapters
 
 import android.app.Activity
@@ -17,9 +18,14 @@ class CountiresAdapter(private val context: Context,
                        val countrylist: List<Country>?)
     : RecyclerView.Adapter<CountiresAdapter.CountryViewHolder>() {
 
-   /* override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CountryViewHolder {
-       *//* val view = LayoutInflater.from(context).inflate(R.layout.item_card, p0, false)
+   */
+/* override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CountryViewHolder {
+       *//*
+*/
+/* val view = LayoutInflater.from(context).inflate(R.layout.item_card, p0, false)
         return CountryViewHolder(view)*//*
+*/
+/*
 
 
         val binding = DataBindingUtil.inflate<ItemCardBinding>(
@@ -29,7 +35,8 @@ class CountiresAdapter(private val context: Context,
             false
         )
         return CountryViewHolder(binding)
-    }*/
+    }*//*
+
    val activity = context as Activity
     private val communicator = activity as MainListener
 
@@ -49,17 +56,21 @@ class CountiresAdapter(private val context: Context,
     }
 
     override fun onBindViewHolder(p0: CountryViewHolder, p1: Int) {
-   /*     p0.city.text = countrylist?.get(p1)?.capital
+   */
+/*     p0.city.text = countrylist?.get(p1)?.capital
         p0.country.text = countrylist?.get(p1)?.name
 
 
         var IMAGE_URI = countrylist?.get(p1)?.flag
         GlideToVectorYou.justLoadImage(context as Activity?, Uri.parse(IMAGE_URI), p0.flag)
-*/
-      /*  val country = countrylist?.get(p1)
+*//*
+
+      */
+/*  val country = countrylist?.get(p1)
         p0.binding.country=country
        // p0.binding = country
-        p0?.bind(country!!)*/
+        p0?.bind(country!!)*//*
+
         p0.recyclerviewMovieBinding.country = this.countrylist!![p1]
 
         p0.recyclerviewMovieBinding.itemCard1?.setOnClickListener {
@@ -71,7 +82,8 @@ class CountiresAdapter(private val context: Context,
 
     }
 
- /*   class CountryViewHolder(val binding: ItemCardBinding) :
+ */
+/*   class CountryViewHolder(val binding: ItemCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(obj: Any) {
@@ -79,10 +91,11 @@ class CountiresAdapter(private val context: Context,
             binding.executePendingBindings()
 
         }
-    }*/
+    }*//*
+
 
     inner class CountryViewHolder(
         val recyclerviewMovieBinding: ItemCardBinding
     ) : RecyclerView.ViewHolder(recyclerviewMovieBinding.root)
 
-}
+}*/

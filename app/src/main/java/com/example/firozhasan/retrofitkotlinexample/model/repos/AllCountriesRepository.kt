@@ -13,26 +13,26 @@ class AllCountriesRepository(private val countriesApi: CountriesAPI) : SafeApiRe
 
    // private val quotes = MutableLiveData<List<Quote>>()
      val allCountires = MutableLiveData<List<Country>>()
-    init {
+/*    init {
         allCountires.observeForever {
            // saveQuotes(it)
            // fetchAllCountries2()
         }
-    }
+    }*/
 
-    private fun saveQuotes(allcountries: List<Country>?) {
-
-
-    }
+/*    private fun saveQuotes(allcountries: List<Country>?) {
 
 
-    suspend fun getALLCounty2(): MutableLiveData<List<Country>> {
+    }*/
+
+
+ /*   suspend fun getALLCounty2(): MutableLiveData<List<Country>> {
         return withContext(Dispatchers.IO) {
             fetchAllCountries2()
             // db.getQuoteDao().getQuotes()
             allCountires
         }
-    }
+    }*/
 
 
      suspend fun fetchAllCountries2() : List<Country> {

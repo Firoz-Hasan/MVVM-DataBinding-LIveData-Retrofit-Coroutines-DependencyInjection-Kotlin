@@ -51,6 +51,6 @@ class CountriesAdapter2(val clickListener: CountryListener) :  ListAdapter<Count
 
 }
 
-class CountryListener(val clickListener : (userId : Country) -> Unit){
+class CountryListener(val clickListener : (country : Country) -> Unit){
     fun onClick(country: Country) = clickListener(country)
 }
