@@ -22,24 +22,9 @@ class AllCountriesViewModel(private val repository : AllCountriesRepository)
     private val _countries = MutableLiveData<List<Country>>()
     val countries: LiveData<List<Country>>?
         get() = _countries
-
-    val countryList2: LiveData<List<Country>>
-        get() = repository.allCountires
-
-    private val _navigateToCountryDetails = MutableLiveData<Country>()
-    val navigateToCountryDetails : LiveData<Country>
-        get() = _navigateToCountryDetails
-
-
-    private val _navigateAlpha2Code = MutableLiveData<String>()
-    val navigateAlpha2Code : LiveData<String>
-        get() = _navigateAlpha2Code
-
     private val _status = MutableLiveData<Status>()
     val status : LiveData<Status>
         get() = _status
-
-
     init {
         getCountry()
     }
@@ -59,18 +44,4 @@ class AllCountriesViewModel(private val repository : AllCountriesRepository)
             }
         }
     }
-
-    fun displayCountryDetails(country: Country)
-    {
-        Log.d("clclcl","${country.alpha2Code} ")
-        _navigateAlpha2Code.value = country.alpha2Code
-
-
-    }
-
-
-
-
-
-
 }

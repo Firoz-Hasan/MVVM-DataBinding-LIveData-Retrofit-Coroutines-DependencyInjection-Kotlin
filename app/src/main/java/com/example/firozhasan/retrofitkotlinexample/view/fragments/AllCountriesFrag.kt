@@ -37,22 +37,11 @@ class AllCountriesFrag : Fragment(), KodeinAware {
         binding.allCountiresViewmodel = viewModel
 
         binding.countriesRV.adapter = CountriesAdapter2(CountryListener {
-            viewModel.displayCountryDetails(it)
+           // viewModel.displayCountryDetails(it)
             val intent = Intent(activity, CountryDetails::class.java)
             intent.putExtra("alpha", it.alpha2Code)
             startActivity(intent)
         })
-
-
-        /*     viewModel.navigateToUserDetails.observe(this, Observer {
-                 it?.let {
-                     findNavController().navigate(UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(it))
-                     viewModel.displayUserDetailsComplete()
-                 }
-             }
-             )*/
-
-
         return binding.root
 
 
