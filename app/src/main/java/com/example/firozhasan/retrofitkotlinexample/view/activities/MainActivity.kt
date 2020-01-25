@@ -1,6 +1,5 @@
 package com.example.firozhasan.retrofitkotlinexample.view.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -10,15 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.firozhasan.retrofitkotlinexample.R
-import com.example.firozhasan.retrofitkotlinexample.listener.MainListener
-import com.example.firozhasan.retrofitkotlinexample.util.toast
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.AllCountriesFrag
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.CountriesDetailsFrag
 import com.example.firozhasan.retrofitkotlinexample.view.fragments.SearchFrag
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class MainActivity : AppCompatActivity(), MainListener {
+class MainActivity : AppCompatActivity() {
 
     var bottomNavigationView: BottomNavigationView? = null
     var allCountriesFrag: AllCountriesFrag? = null
@@ -85,22 +82,6 @@ class MainActivity : AppCompatActivity(), MainListener {
         bottomNavigationView = findViewById(R.id.navigation_bottom)
         bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
-
-    private fun addFragment3(fragment: Fragment, fragment2: Fragment, fragment3: Fragment) {
-
-            supportFragmentManager
-                    .beginTransaction()
-                    .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
-                    .hide(fragment2)
-                    .hide(fragment3)
-                   // .add(R.id.content, fragment, fragment.javaClass.simpleName)
-                    .show(fragment)
-                    .addToBackStack(null)
-                    .commit()
-
-    }
-
-
     private fun addFragment(fragment: Fragment, fragment2: Fragment, fragment3: Fragment) {
         if (fragment.isAdded) {
             Log.d("which", "1")
@@ -128,30 +109,19 @@ class MainActivity : AppCompatActivity(), MainListener {
 
     }
 
-    override fun gotoDetailsFragment(alpha2Code: String) {
+/*    override fun gotoDetailsFragment(alpha2Code: String) {
         val args = Bundle()
         args.putString("alpha", alpha2Code)
         countriesDetails?.setArguments(args)
         addFragment(countriesDetails!!, allCountriesFrag!!, searchFrag!!)
-
         toast(alpha2Code)
-        /*   val fragment: Fragment = CountriesDetailsFrag()
-           val fragment2: Fragment = AllCountriesFrag()
-           //activity.supportFragmentManager.beginTransaction().replace(R.id.coun, myFragment).addToBackStack(null).commit()
-           supportFragmentManager
-                   .beginTransaction()
-                   .setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out)
-                   .hide(fragment2)
-                   .add(R.id.content, fragment, fragment.javaClass.simpleName)
-                   .show(fragment)
-                   .commit()*/
     }
 
     override fun gotoDetailsActivity(alpha2Code: String) {
         val intent = Intent(this, CountryDetails::class.java)
         intent.putExtra("alpha", alpha2Code)
         startActivity(intent)
-    }
+    }*/
 
 
 }

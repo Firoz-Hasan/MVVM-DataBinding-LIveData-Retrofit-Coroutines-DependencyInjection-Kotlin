@@ -43,12 +43,10 @@ class AllCountriesViewModel(private val repository : AllCountriesRepository)
     init {
         getCountry()
     }
-    fun getCountry() {
+    private fun getCountry() {
         viewModelScope.launch {
             try {
-                withContext(Dispatchers.IO) {
-                    countryList = repository.fetchAllCountries2()
-                }
+                countryList = repository.fetchAllCountries2()
                 _status.value = Status.LOADING
                 _countries.value = countryList
                 _status.value = Status.DONE
@@ -65,7 +63,6 @@ class AllCountriesViewModel(private val repository : AllCountriesRepository)
     fun displayCountryDetails(country: Country)
     {
         Log.d("clclcl","${country.alpha2Code} ")
-
         _navigateAlpha2Code.value = country.alpha2Code
 
 

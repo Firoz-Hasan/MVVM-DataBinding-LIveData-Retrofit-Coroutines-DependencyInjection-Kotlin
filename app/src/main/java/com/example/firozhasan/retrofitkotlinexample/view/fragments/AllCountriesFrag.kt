@@ -26,14 +26,7 @@ import org.kodein.di.generic.instance
 class AllCountriesFrag : Fragment(), KodeinAware {
     override val kodein by kodein()
     private val factory: AllCountriesViewModelFactory by instance()
-
     private lateinit var viewModel: AllCountriesViewModel
-
-    lateinit var recyclerView: RecyclerView
-    //lateinit var adapter: CountiresAdapter
-
-  //  private val communicator = activity as MainListener
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = AllCountriesFragBinding.inflate(inflater)
 
@@ -45,12 +38,9 @@ class AllCountriesFrag : Fragment(), KodeinAware {
 
         binding.countriesRV.adapter = CountriesAdapter2(CountryListener {
             viewModel.displayCountryDetails(it)
-          //  communicator?.gotoDetailsActivity("AF")
             val intent = Intent(activity, CountryDetails::class.java)
             intent.putExtra("alpha", it.alpha2Code)
             startActivity(intent)
-
-
         })
 
 
@@ -62,9 +52,6 @@ class AllCountriesFrag : Fragment(), KodeinAware {
              }
              )*/
 
-        /*  binding.btn.setOnClickListener {
-              view: View? ->  view?.findNavController()?.navigate(R.id.viewPagerFragment)
-          }*/
 
         return binding.root
 
