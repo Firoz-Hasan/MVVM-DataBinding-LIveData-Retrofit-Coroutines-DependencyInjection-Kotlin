@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.RecyclerView
 import com.example.firozhasan.retrofitkotlinexample.databinding.AllCountriesFragBinding
 import com.example.firozhasan.retrofitkotlinexample.view.activities.CountryDetails
 import com.example.firozhasan.retrofitkotlinexample.view.adapters.CountriesAdapter2
@@ -29,13 +28,9 @@ class AllCountriesFrag : Fragment(), KodeinAware {
     private lateinit var viewModel: AllCountriesViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = AllCountriesFragBinding.inflate(inflater)
-
         binding.lifecycleOwner = this
-
         viewModel = ViewModelProviders.of(this, factory).get(AllCountriesViewModel::class.java)
-
         binding.allCountiresViewmodel = viewModel
-
         binding.countriesRV.adapter = CountriesAdapter2(CountryListener {
            // viewModel.displayCountryDetails(it)
             val intent = Intent(activity, CountryDetails::class.java)
@@ -43,7 +38,5 @@ class AllCountriesFrag : Fragment(), KodeinAware {
             startActivity(intent)
         })
         return binding.root
-
-
     }
 }

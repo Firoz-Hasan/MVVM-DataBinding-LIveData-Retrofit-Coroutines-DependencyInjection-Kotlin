@@ -22,6 +22,5 @@ class CountryDetails : AppCompatActivity() {
                  .add(R.id.cntryDetails, countriesDetails!!)
                 .show(countriesDetails!!)
                 .commit()
-
     }
 }

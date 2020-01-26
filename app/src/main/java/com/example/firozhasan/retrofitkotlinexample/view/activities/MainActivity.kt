@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     // bottom navigation item selection
     private val mOnNavigationItemSelectedListener =
         object : BottomNavigationView.OnNavigationItemSelectedListener {
-
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 when (item.itemId) {
                     R.id.home -> {
@@ -42,7 +41,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 return false
             }
-
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,11 +49,7 @@ class MainActivity : AppCompatActivity() {
         prepareAllView()
 // add kountry list fragment as default fragment
         addFragment(allCountriesFrag!!, searchFrag!! , countriesDetails!!)
-
-
-
     }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_main, menu)
@@ -102,27 +96,8 @@ class MainActivity : AppCompatActivity() {
                     .hide(fragment3)
                 .add(R.id.content, fragment, fragment.javaClass.simpleName)
                 .show(fragment)
-
-
                 .commit()
         }
-
     }
-
-/*    override fun gotoDetailsFragment(alpha2Code: String) {
-        val args = Bundle()
-        args.putString("alpha", alpha2Code)
-        countriesDetails?.setArguments(args)
-        addFragment(countriesDetails!!, allCountriesFrag!!, searchFrag!!)
-        toast(alpha2Code)
-    }
-
-    override fun gotoDetailsActivity(alpha2Code: String) {
-        val intent = Intent(this, CountryDetails::class.java)
-        intent.putExtra("alpha", alpha2Code)
-        startActivity(intent)
-    }*/
-
-
 }
 

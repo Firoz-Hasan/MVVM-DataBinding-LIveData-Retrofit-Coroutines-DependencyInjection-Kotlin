@@ -8,7 +8,6 @@ import com.example.firozhasan.retrofitkotlinexample.model.repos.FindCountryRepos
 class FindCountryViewModelFactory(
     private val repository: FindCountryRepository
 ) : ViewModelProvider.NewInstanceFactory() {
-
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return FindCountryViewModel(repository) as T
     }

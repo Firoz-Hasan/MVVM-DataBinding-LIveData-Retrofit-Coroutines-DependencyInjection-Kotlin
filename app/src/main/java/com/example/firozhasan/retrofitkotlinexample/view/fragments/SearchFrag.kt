@@ -31,7 +31,6 @@ class SearchFrag : Fragment(),KodeinAware {
         savedInstanceState: Bundle?
     ): View? {
        //val viewModel = ViewModelProviders.of(this).get(FindCountryViewModel::class.java)
-
         viewModel = ViewModelProviders.of(this, factory).get(FindCountryViewModel::class.java)
         val binding = DataBindingUtil.inflate<FragmentSearchFragBinding>(inflater,
             R.layout.fragment_search_frag, container, false).apply {
@@ -40,6 +39,4 @@ class SearchFrag : Fragment(),KodeinAware {
         }
         return binding.root
     }
-
-
 }

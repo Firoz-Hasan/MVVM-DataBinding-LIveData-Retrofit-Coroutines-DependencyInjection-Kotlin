@@ -14,7 +14,6 @@ import com.example.firozhasan.retrofitkotlinexample.databinding.CountryDetailFra
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import com.example.firozhasan.retrofitkotlinexample.viewModel.CountryDetailsViewModel
 import com.example.firozhasan.retrofitkotlinexample.viewModel.CountryDetailsViewModelFactory
-import com.google.android.gms.maps.model.LatLng
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
@@ -39,22 +38,16 @@ class CountriesDetailsFrag: Fragment(), KodeinAware {
             this.lifecycleOwner = activity
             this.viewmodel = viewModel
             bindUI()
-
         }
-
         //Toast.makeText(activity,"sfsdfsf",Toast.LENGTH_LONG).show()
         return binding.root
        // return inflater.inflate(R.layout.fragment_search_frag, container, false)
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         //viewModel = ViewModelProviders.of(this, factory).get(CountryDetailsViewModel::class.java)
         Log.d("fraglifecycle", "onActivityCreated")
-
-
-
     }
 
     override fun onAttach(context: Context) {
@@ -81,7 +74,5 @@ class CountriesDetailsFrag: Fragment(), KodeinAware {
     private fun bindUI() = Coroutines.main {
         //progressBar.show()
         viewModel.alpha2CountryDetails(alphaValue)
-
-
     }
 }

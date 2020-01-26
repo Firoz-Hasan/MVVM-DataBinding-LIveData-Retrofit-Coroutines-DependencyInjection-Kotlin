@@ -1,18 +1,14 @@
 package com.example.firozhasan.retrofitkotlinexample.model.repos
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.firozhasan.retrofitkotlinexample.model.api.CountriesAPI
 import com.example.firozhasan.retrofitkotlinexample.model.api.SafeApiRequest
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 import com.example.firozhasan.retrofitkotlinexample.util.Coroutines
 import com.google.android.gms.maps.model.LatLng
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class CountryDetailsRepository(private val countriesAPI: CountriesAPI) : SafeApiRequest() {
-
 
     val findCountryFullInfo = MutableLiveData<List<Country>>()
     val detailsCountry = MutableLiveData<String>()
@@ -28,14 +24,11 @@ class CountryDetailsRepository(private val countriesAPI: CountriesAPI) : SafeApi
     val detailsLng = MutableLiveData<Double>()
     val detailsLatLng = MutableLiveData<LatLng>()
 
-
-
     suspend fun getCountryDetails(alpha2Code: String) {
         return Coroutines.withContextIO {
             fetchCountryDetails(alpha2Code)
             //findCountryFullInfo
         }
-
     /*    withContext(Dispatchers.IO) {
             fetchCountryDetails(alpha2Code)
             // db.getQuoteDao().getQuotes()
@@ -43,8 +36,6 @@ class CountryDetailsRepository(private val countriesAPI: CountriesAPI) : SafeApi
         }*/
 
     }
-
-
     private suspend fun fetchCountryDetails(alpha2Code: String) {
         //val lastSavedAt = prefs.getLastSavedAt()
         Log.d("hellohello", "fetchCountryDetails outside fetch ")
