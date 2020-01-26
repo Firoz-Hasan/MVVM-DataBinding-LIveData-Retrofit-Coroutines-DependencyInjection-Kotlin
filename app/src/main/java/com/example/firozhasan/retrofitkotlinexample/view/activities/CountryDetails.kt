@@ -7,6 +7,7 @@ import com.example.firozhasan.retrofitkotlinexample.view.fragments.CountriesDeta
 
 
 class CountryDetails : AppCompatActivity() {
+
     var countriesDetails: CountriesDetailsFrag? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
