@@ -8,7 +8,6 @@ import com.example.firozhasan.retrofitkotlinexample.model.repos.LoginRepository
 class AuthViewModelFactory(
     private val repository: LoginRepository
 ) : ViewModelProvider.NewInstanceFactory() {
-
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return AuthViewModel(repository) as T
     }
