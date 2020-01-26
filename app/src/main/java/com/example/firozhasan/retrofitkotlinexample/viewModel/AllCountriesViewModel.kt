@@ -25,7 +25,7 @@ class AllCountriesViewModel(private val repository : AllCountriesRepository)
     private fun getCountry() {
         viewModelScope.launch {
             try {
-                countryList = repository.fetchAllCountries2()
+                countryList = repository.fetchAllCountries()
                 _status.value = Status.LOADING
                 _countries.value = countryList
                 _status.value = Status.DONE
