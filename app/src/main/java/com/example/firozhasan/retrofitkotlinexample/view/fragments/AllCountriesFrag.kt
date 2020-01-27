@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.firozhasan.retrofitkotlinexample.databinding.AllCountriesFragBinding
 import com.example.firozhasan.retrofitkotlinexample.view.activities.CountryDetails
-import com.example.firozhasan.retrofitkotlinexample.view.adapters.CountriesAdapter2
+import com.example.firozhasan.retrofitkotlinexample.view.adapters.CountriesAdapter
 import com.example.firozhasan.retrofitkotlinexample.view.adapters.CountryListener
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountriesViewModel
 import com.example.firozhasan.retrofitkotlinexample.viewModel.AllCountriesViewModelFactory
@@ -31,7 +31,7 @@ class AllCountriesFrag : Fragment(), KodeinAware {
         binding.lifecycleOwner = this
         viewModel = ViewModelProviders.of(this, factory).get(AllCountriesViewModel::class.java)
         binding.allCountiresViewmodel = viewModel
-        binding.countriesRV.adapter = CountriesAdapter2(CountryListener {
+        binding.countriesRV.adapter = CountriesAdapter(CountryListener {
            // viewModel.displayCountryDetails(it)
             val intent = Intent(activity, CountryDetails::class.java)
             intent.putExtra("alpha", it.alpha2Code)
