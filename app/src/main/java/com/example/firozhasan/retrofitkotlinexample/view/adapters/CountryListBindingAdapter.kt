@@ -23,8 +23,8 @@ fun loadImage(view: ImageView, url: String) {
 }
 
 @BindingAdapter("list")
-fun bindUsersRecyclerView(recyclerView: RecyclerView, data: List<Country>?) {
-    val adapter = recyclerView.adapter as CountriesAdapter2
+fun bindCountryRecyclerView(recyclerView: RecyclerView, data: List<Country>?) {
+    val adapter = recyclerView.adapter as CountriesAdapter
     data?.let {
         adapter.submitList(data)
     }

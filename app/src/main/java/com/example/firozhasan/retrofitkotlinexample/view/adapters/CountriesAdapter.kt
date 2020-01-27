@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.firozhasan.retrofitkotlinexample.databinding.ItemCardBinding
 import com.example.firozhasan.retrofitkotlinexample.model.modelClass.Country
 
-class CountriesAdapter2(val clickListener: CountryListener) :  ListAdapter<Country, CountriesAdapter2.CountryViewHolder>(DiffUserCallback){
+class CountriesAdapter(val clickListener: CountryListener) :  ListAdapter<Country, CountriesAdapter.CountryViewHolder>(DiffUserCallback){
 
     companion object DiffUserCallback : DiffUtil.ItemCallback<Country>(){
         override fun areItemsTheSame(oldItem: Country, newItem: Country): Boolean {
