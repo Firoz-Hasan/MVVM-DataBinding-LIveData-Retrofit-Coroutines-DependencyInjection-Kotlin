@@ -1,4 +1,4 @@
-# MVVM-DataBinding-LIveData-Retrofit-Coroutines-DependencyInjection-Kotlin
+# MVVM-DataBinding-LiveData-Retrofit-Coroutines-DependencyInjection-Kotlin
 
 <b>Implementation of retrofit by using kotlin for understading </b>
 <br>
